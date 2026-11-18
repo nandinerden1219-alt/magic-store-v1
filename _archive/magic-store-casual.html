@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magic Store | Мэйжик Тек Монголиа ХХК</title>
+<meta name="description" content="Magic Store: технологид суурилсан, 24/7 ажиллагаатай ухаалаг худалдааны цэг.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+/* =========================================================
+   MAGIC STORE · хэрэглэгчийн дизайныг (Home / About / Contact / FAQ)
+   дарааллаар нь, brand book-ийн өнгөөр хийсэн хувилбар.
+   Brand: #280D38 · #7307E1 · #F5EBFF · #FFFFFF
+   Зургууд: img/ (бодит фотогоор ижил нэрээр солино)
+   ========================================================= */
+:root{
+  --deep:#280D38; --purple:#7307E1; --lav:#F5EBFF; --white:#FFFFFF;
+  --ink:#280D38; --ink-2:rgba(40,13,56,.72); --ink-3:rgba(40,13,56,.5);
+  --grad:linear-gradient(180deg,#280D38 0%,#7307E1 62%,#F5EBFF 100%);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --wide:"Unbounded",system-ui,sans-serif;
+  --sans:"Manrope",system-ui,sans-serif;
+  --cond:"Roboto Condensed","Manrope",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,3.5vw,40px)}
+section{position:relative;scroll-margin-top:96px}
+:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,box-shadow .4s}
+.nav.scrolled{background:rgba(255,255,255,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(40,13,56,.08)}
+.nav-in{max-width:1200px;margin:0 auto;padding:0 clamp(16px,3.5vw,40px);height:84px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;justify-self:start}
+.logo-mark{font-family:var(--wide);font-weight:800;font-size:30px;letter-spacing:-.08em;transform:skewX(-16deg);background:linear-gradient(90deg,#7307E1,#280D38);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;padding-right:3px}
+.logo-text{font-family:var(--wide);font-weight:700;font-size:10.5px;line-height:1.15;letter-spacing:-.02em;color:var(--purple);text-transform:uppercase}
+.links{display:flex;gap:24px;list-style:none}
+.links a{display:block;padding:8px 22px;border-radius:7px;text-decoration:none;font-size:15px;color:var(--ink);transition:background .35s var(--ease),color .35s var(--ease)}
+.links a:hover{background:var(--lav)}
+.links a.on{background:var(--purple);color:#fff}
+.signup{justify-self:end;display:inline-flex;align-items:center;height:40px;padding:0 26px;border-radius:8px;background:var(--deep);color:#fff;font-weight:700;font-size:15px;text-decoration:none;transition:background .3s}
+.signup:hover{background:var(--purple)}
+.signup:active{transform:scale(.97)}
+.burger{display:none;justify-self:end;width:44px;height:44px;border-radius:10px;background:var(--lav);font-size:22px;place-items:center}
+
+/* =========================================================
+   HOME · HERO (Retail tech vending)
+   ========================================================= */
+.hero{padding-top:150px}
+.hero-box{position:relative}
+.hero-card{position:relative;border-radius:clamp(36px,5vw,64px);background:var(--grad);min-height:clamp(340px,34vw,420px);color:#fff;overflow:hidden;display:flex;align-items:center}
+.hero-card::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 15% 20%,rgba(255,255,255,.12),transparent 60%);pointer-events:none}
+.hero-copy{position:relative;z-index:1;padding:clamp(28px,5vw,64px);max-width:520px}
+.hero h1{font-family:var(--wide);font-weight:700;font-size:clamp(46px,6.6vw,86px);line-height:.95;letter-spacing:-.04em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.05em}
+.hero h1 .ln>span{display:inline-block}
+.hero h1 small{font-family:var(--sans);font-weight:400;font-size:.36em;letter-spacing:0;margin-left:.35em;vertical-align:.12em}
+.hero-copy p{margin-top:18px;font-size:15px;line-height:1.55;color:rgba(255,255,255,.9);max-width:42ch}
+.machines-fly{position:absolute;right:clamp(8px,3vw,40px);bottom:clamp(16px,2vw,28px);display:flex;align-items:flex-end;pointer-events:none;z-index:2}
+.machines-fly img{filter:drop-shadow(0 26px 30px rgba(40,13,56,.35));-webkit-mask-image:linear-gradient(180deg,#000 91%,transparent 97%);mask-image:linear-gradient(180deg,#000 91%,transparent 97%)}
+.c1 img{-webkit-mask-image:linear-gradient(180deg,#000 91%,transparent 97%);mask-image:linear-gradient(180deg,#000 91%,transparent 97%)}
+.mf-a{width:clamp(190px,25vw,320px);margin-bottom:-6px}
+.mf-b{width:clamp(150px,19vw,240px);margin-left:-40px;margin-bottom:-26px}
+
+/* =========================================================
+   HOME · 3 CARDS
+   ========================================================= */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px);margin-top:clamp(50px,6vw,80px)}
+.card{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:1/1.27;display:flex;flex-direction:column;text-decoration:none;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(40,13,56,.45)}
+.card-arrow{position:absolute;right:16px;bottom:16px;z-index:3;width:34px;height:34px;border-radius:50%;background:#fff;color:var(--deep);display:grid;place-items:center;font-size:15px;box-shadow:0 6px 16px -8px rgba(40,13,56,.5);transition:transform .5s var(--ease)}
+.card:hover .card-arrow{transform:rotate(-45deg)}
+.c1{background:#fff;box-shadow:inset 0 0 0 1px rgba(40,13,56,.1);padding:24px}
+.c1 .mini{font-family:var(--wide);font-weight:800;font-size:13px;letter-spacing:-.04em;color:var(--purple)}
+.c1 .mini span{display:block;font-family:var(--sans);font-weight:600;font-size:9px;letter-spacing:0;color:var(--ink-3)}
+.c1 h3{position:relative;z-index:2;font-family:var(--wide);font-weight:700;font-size:clamp(20px,2.2vw,30px);line-height:1.02;letter-spacing:-.04em;text-transform:uppercase;margin-top:clamp(18px,3vw,36px);max-width:9.5ch}
+.c1 .sq{position:relative;z-index:2;margin-top:14px;width:40px;height:40px;border-radius:8px;background:#B07BF0;color:#fff;display:grid;place-items:center;font-size:20px}
+.c1 img{position:absolute;right:-6%;bottom:-20%;width:66%;transition:transform .8s var(--ease)}
+.card.c1:hover img{transform:translate(-4%,-5%)}
+.c2 .top,.c3 .top{padding:clamp(22px,2.6vw,32px) clamp(22px,2.6vw,32px) 0;flex:1}
+.c2 h3,.c3 h3{font-weight:700;font-size:clamp(22px,2.3vw,32px);line-height:1.1;letter-spacing:-.03em;max-width:9ch}
+.c2{background:var(--lav)}
+.c2 .bottom{height:40%;background:var(--deep);position:relative}
+.c2>img{position:absolute;left:50%;bottom:20%;width:34%;transform:translateX(-50%);z-index:2;animation:bob 4.5s ease-in-out infinite;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 86%);mask-image:linear-gradient(180deg,#000 80%,transparent 86%)}
+@keyframes bob{50%{transform:translate(-50%,-8px) rotate(-5deg)}}
+.c3{background:var(--purple);color:#fff}
+.c3 h3{max-width:none}
+.c3 small{display:block;margin-top:6px;font-size:12.5px;color:rgba(255,255,255,.82)}
+.c3 .bottom{height:50%;background:var(--lav);position:relative}
+.c3 .bottom img{position:absolute;right:-12%;bottom:6%;width:108%;max-width:none;transition:transform .8s var(--ease)}
+.card.c3:hover .bottom img{transform:translateX(-4%)}
+
+/* =========================================================
+   HOME · ХУДАЛДААНЫ АВТОМАТ МАШИН
+   ========================================================= */
+.machines{margin-top:clamp(28px,3vw,40px);border-radius:clamp(32px,4.5vw,56px);background:var(--lav);padding:clamp(28px,5vw,64px)}
+.m-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,64px);align-items:end}
+.m-head>div{display:grid;gap:14px;justify-items:start}
+.m-head .eyebrow{background:#fff}
+.m-head h2{font-weight:800;font-size:clamp(30px,3.4vw,46px);line-height:1.05;letter-spacing:-.035em}
+.m-head h2 span{color:var(--purple)}
+.m-head p{font-size:clamp(16px,1.3vw,17.5px);line-height:1.7;color:var(--ink-2);max-width:50ch}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(26px,3.5vw,40px)}
+.stat{display:flex;align-items:center;gap:18px;background:#fff;border-radius:22px;padding:clamp(18px,2vw,24px);box-shadow:0 16px 34px -28px rgba(40,13,56,.5);transition:transform .5s var(--ease)}
+.stat:hover{transform:translateY(-4px)}
+.stat>i{width:56px;height:56px;border-radius:16px;background:var(--lav);color:var(--purple);display:grid;place-items:center;font-size:28px;flex:none}
+.stat b{display:block;font-weight:800;font-size:clamp(28px,3vw,40px);letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.stat b em{font-style:normal;color:var(--purple)}
+.stat div>span{display:block;margin-top:8px;font-size:14.5px;color:var(--ink-2)}
+
+/* =========================================================
+   HOME · MAIN PRODUCTS
+   ========================================================= */
+.products{display:grid;grid-template-columns:1.75fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:clamp(28px,3vw,40px);padding-bottom:clamp(80px,10vw,130px)}
+.p-panel{background:var(--lav);border-radius:clamp(28px,3.5vw,40px);padding:clamp(16px,2.2vw,26px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,16px)}
+.prod{background:#fff;border-radius:22px;padding:10px;display:flex;flex-direction:column;gap:10px;box-shadow:0 20px 40px -30px rgba(40,13,56,.5);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.prod:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(115,7,225,.55)}
+.prod .pw{overflow:hidden;border-radius:14px}
+.prod img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 32%;transition:transform .8s var(--ease)}
+.prod:hover img{transform:scale(1.05)}
+.prod b{display:block;border-radius:12px;padding:11px 8px;text-align:center;font-size:13px;font-weight:700;line-height:1.2;color:#fff}
+.prod small{display:block;text-align:center;font-size:12.5px;color:var(--ink-2);padding-bottom:4px}
+.prod:nth-child(1) b{background:var(--purple)}
+.prod:nth-child(2) b{background:var(--deep)}
+.prod:nth-child(3) b{background:linear-gradient(90deg,var(--deep),var(--purple))}
+.p-copy{display:grid;gap:16px;justify-items:start}
+.eyebrow{display:inline-flex;align-items:center;height:30px;padding:0 14px;border-radius:999px;background:var(--lav);color:var(--purple);font-size:12.5px;font-weight:700}
+.p-copy h2{font-weight:800;font-size:clamp(32px,3.6vw,50px);line-height:1.02;letter-spacing:-.035em}
+.p-copy h2 span{color:var(--purple)}
+.p-copy p{font-size:16px;line-height:1.6;color:var(--ink-2);max-width:34ch}
+.p-list{list-style:none;display:grid;gap:10px;margin:2px 0 6px}
+.p-list li{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600}
+.p-list i{width:28px;height:28px;border-radius:9px;background:var(--lav);color:var(--purple);display:grid;place-items:center;font-size:15px}
+.more{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:999px;background:var(--purple);color:#fff;font-size:14px;font-weight:800;letter-spacing:.06em;text-decoration:none;transition:gap .4s var(--ease),background .3s}
+.more:hover{gap:14px;background:var(--deep)}
+
+/* =========================================================
+   ABOUT · ТОВЧ ТАНИЛЦУУЛГА
+   ========================================================= */
+.about-card{border-radius:clamp(36px,5vw,64px);background:var(--lav);padding:clamp(32px,5.5vw,80px)}
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(28px,5vw,80px);align-items:start}
+.about-left{display:grid;gap:clamp(22px,3vw,34px)}
+.about-card h2{font-family:var(--wide);font-weight:800;font-size:clamp(28px,3.1vw,44px);line-height:1;letter-spacing:-.045em;text-transform:uppercase}
+.about-card h2 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.about-card h2 .ln>span{display:inline-block}
+.motto{border-radius:24px;background:linear-gradient(135deg,#280D38 0%,#7307E1 100%);color:#fff;padding:24px 26px 26px;box-shadow:0 24px 50px -30px rgba(115,7,225,.8)}
+.motto small{display:block;font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.motto b{display:block;margin-top:10px;font-weight:800;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;line-height:1.1}
+.about-text{font-size:clamp(16.5px,1.35vw,18.5px);line-height:1.75;color:var(--ink)}
+.about-text strong{font-weight:800;color:var(--purple)}
+.about-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(24px,3vw,34px)}
+.ab-item{background:#fff;border-radius:20px;padding:22px 22px 24px;box-shadow:0 16px 34px -28px rgba(40,13,56,.5)}
+.ab-item>i{width:42px;height:42px;border-radius:13px;background:var(--lav);color:var(--purple);display:grid;place-items:center;font-size:22px}
+.ab-item h4{margin-top:14px;font-size:16px;font-weight:800}
+.ab-item ul{list-style:none;margin-top:10px;display:grid;gap:8px}
+.ab-item li{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--ink-2)}
+.ab-item li i{color:var(--purple);font-size:15px}
+.ab-item p{margin-top:10px;font-size:15px;line-height:1.6;color:var(--ink-2)}
+.ab-item .todo{font-style:italic;color:var(--ink-3)}
+.store-photo{margin:clamp(22px,3vw,32px) auto 0;width:100%;overflow:hidden;border-radius:clamp(28px,4vw,48px)}
+.store-photo img{width:100%;aspect-ratio:16/7.6;object-fit:cover}
+
+
+
+/* =========================================================
+   CONTACT · ЗАХИАЛГА ӨГӨХ
+   ========================================================= */
+.contact{padding:0 0 clamp(90px,11vw,140px)}
+.order{max-width:920px}
+.order h2{font-weight:700;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.025em}
+.order .sub{margin-top:6px;font-size:clamp(17px,1.7vw,22px);line-height:1.4;color:var(--ink-2);max-width:30ch}
+.form{margin-top:clamp(16px,2vw,22px)}
+.field{display:grid;gap:10px;margin-bottom:22px}
+.field>.lbl{font-weight:700;font-size:clamp(17px,1.6vw,21px)}
+.big{width:100%;height:clamp(60px,6vw,76px);border-radius:16px;border:1.5px solid transparent;background:var(--lav);padding:0 26px;font-size:clamp(16px,1.6vw,20px);color:var(--ink);transition:border-color .35s,box-shadow .35s,background .35s;appearance:none;-webkit-appearance:none}
+.big::placeholder{color:rgba(40,13,56,.55)}
+.big:focus{outline:none;border-color:var(--purple);background:#fff;box-shadow:0 0 0 4px rgba(115,7,225,.12)}
+textarea.big{height:auto;min-height:100px;padding:20px 26px;font-size:clamp(15px,1.4vw,17px);resize:vertical;line-height:1.5}
+.sel-wrap{position:relative}
+.sel-wrap .chev{position:absolute;right:22px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:var(--deep);color:#fff;display:grid;place-items:center;font-size:15px;pointer-events:none}
+.opts{margin:-2px 0 0 30px;font-size:13px;line-height:1.45;color:var(--ink-2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px)}
+.radio{position:relative}
+.radio input{position:absolute;opacity:0}
+.radio label{display:flex;align-items:center;gap:clamp(16px,4vw,70px);height:clamp(64px,6.4vw,84px);padding:0 28px;border-radius:16px;background:var(--lav);box-shadow:inset 0 0 0 1.5px rgba(115,7,225,.45);font-weight:700;font-size:clamp(16px,1.6vw,20px);cursor:pointer;transition:box-shadow .35s,background .35s}
+.radio label::before{content:"";width:26px;height:26px;border-radius:50%;box-sizing:border-box;border:1.5px solid rgba(40,13,56,.45);flex:none;transition:all .35s var(--ease)}
+.radio input:checked+label{box-shadow:inset 0 0 0 2px var(--purple)}
+.radio input:checked+label::before{border:0;background:var(--purple);transform:scale(.85)}
+.radio input:focus-visible+label{outline:2px solid var(--purple);outline-offset:3px}
+.err{display:none;font-size:13.5px;font-weight:700;color:#C2185B}
+.field.invalid .err{display:block}
+.field.invalid .big{box-shadow:inset 0 0 0 1.5px #E0457B}
+.send{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:clamp(56px,5.6vw,68px);padding:0 44px;border-radius:16px;background:var(--purple);color:#fff;font-weight:700;font-size:18px;transition:background .3s,transform .3s var(--ease)}
+.send:hover{background:var(--deep)}
+.send:active{transform:scale(.98)}
+.send[disabled]{opacity:.7;pointer-events:none}
+.ok-box{display:none;margin-top:22px;padding:28px;border-radius:16px;background:var(--lav)}
+.ok-box.show{display:block}
+.ok-box b{display:block;font-size:22px;font-weight:700}
+.ok-box p{margin-top:6px;color:var(--ink-2)}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.faq{padding:clamp(90px,11vw,140px) 0 clamp(80px,10vw,120px)}
+.faq-head{text-align:center;display:grid;gap:10px;justify-items:center}
+.faq-head h2{font-weight:800;font-size:clamp(28px,3.2vw,42px);letter-spacing:-.03em;line-height:1.15}
+.faq-head h2 span{color:var(--purple)}
+.faq-head p{font-size:16px;color:var(--ink-2)}
+.faq-list{max-width:860px;margin:clamp(28px,4vw,44px) auto 0;display:grid;gap:10px}
+.qa{border-radius:16px;background:#fff;box-shadow:inset 0 0 0 1px rgba(40,13,56,.1);transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+.qa:hover{box-shadow:inset 0 0 0 1px rgba(115,7,225,.4)}
+.qa.open{background:var(--lav);box-shadow:inset 0 0 0 1px rgba(115,7,225,.18)}
+.qa button{width:100%;display:grid;grid-template-columns:34px 1fr 30px;gap:16px;align-items:center;padding:16px 18px;text-align:left;font-weight:600;font-size:clamp(15.5px,1.4vw,17.5px);line-height:1.4;color:var(--ink)}
+.qa .n{width:34px;height:34px;border-radius:10px;background:var(--lav);color:var(--purple);display:grid;place-items:center;font-size:13px;font-weight:700;transition:background .35s,color .35s}
+.qa.open .n{background:var(--purple);color:#fff}
+.qa .pm{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--purple);font-size:16px;transition:transform .45s var(--ease)}
+.qa.open .pm{transform:rotate(45deg)}
+.qa-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.qa.open .qa-panel{grid-template-rows:1fr}
+.qa-panel>div{overflow:hidden}
+.qa-panel p{padding:0 64px 20px 68px;font-size:15.5px;line-height:1.65;color:var(--ink-2)}
+.faq-more{margin-top:28px;text-align:center;font-size:15px;color:var(--ink-2)}
+.faq-more a{color:var(--purple);font-weight:700;text-decoration:none;margin-left:6px}
+.faq-more a:hover{text-decoration:underline}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{background:var(--deep);color:#fff}
+.ft-top{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:clamp(28px,5vw,80px);padding:clamp(56px,7vw,88px) 0 clamp(40px,5vw,60px)}
+.footer .logo-mark{background:linear-gradient(90deg,#FFFFFF,#F5EBFF);-webkit-background-clip:text;background-clip:text}
+.footer .logo-text{color:var(--lav)}
+.ft-brand p{margin-top:18px;font-size:15px;line-height:1.65;color:rgba(255,255,255,.7);max-width:36ch}
+.ft-social{display:flex;gap:8px;margin-top:22px}
+.ft-social a{width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);display:grid;place-items:center;font-size:18px;color:#fff;text-decoration:none;transition:background .3s}
+.ft-social a:hover{background:var(--purple);box-shadow:none}
+.footer h4{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px}
+.ft-links{list-style:none;display:grid;gap:12px}
+.ft-links a{text-decoration:none;color:rgba(255,255,255,.85);font-size:15px;transition:color .3s}
+.ft-links a:hover{color:#fff}
+.ft-contact{display:grid;gap:16px}
+.ft-contact>div{display:flex;gap:12px;align-items:flex-start}
+.ft-contact i{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:17px;flex:none;color:var(--lav)}
+.ft-contact small{display:block;font-size:12px;color:rgba(255,255,255,.5)}
+.ft-contact b{display:block;font-weight:500;font-size:15px;line-height:1.5;color:rgba(255,255,255,.9);margin-top:2px}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;color:rgba(255,255,255,.5)}
+.ft-bottom a{color:inherit;text-decoration:none;margin-left:20px;transition:color .3s}
+.ft-bottom a:hover{color:#fff}
+
+/* ---------- reveal base ---------- */
+.js [data-reveal]{opacity:0}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:900px){
+  .links,.signup{display:none}
+  .burger{display:grid}
+  .nav-in{grid-template-columns:1fr auto}
+  .nav.open .links{display:flex;flex-direction:column;gap:4px;position:absolute;top:84px;left:12px;right:12px;background:#fff;border-radius:18px;padding:10px;box-shadow:0 30px 60px -30px rgba(40,13,56,.45)}
+  .nav.open .links a{padding:14px 16px;font-size:17px}
+  .hero{padding-top:110px}
+  .hero-box{padding-top:clamp(190px,40vw,330px)}
+  .machines-fly{right:auto;left:50%;transform:translateX(-50%);top:0;bottom:auto}
+  .mf-a{width:min(44vw,300px)}.mf-b{width:min(34vw,230px);margin-left:-22px}
+  .hero-card{padding-top:clamp(60px,17vw,150px);align-items:flex-end}
+  .cards{grid-template-columns:1fr 1fr}
+  .cards .c3{grid-column:1/-1;aspect-ratio:auto;min-height:340px}
+  .products{grid-template-columns:1fr}
+  .m-head{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr 1fr}
+  .ft-brand{grid-column:1/-1}
+}
+@media (max-width:640px){
+  .hero{padding-top:100px}
+  .hero-box{padding-top:clamp(190px,56vw,250px)}
+  .hero-card{padding-top:clamp(60px,20vw,100px)}
+  .cards{grid-template-columns:1fr}
+  .cards .c3{grid-column:auto}
+  .card{aspect-ratio:auto;min-height:380px}
+  .stats{grid-template-columns:1fr}
+  .p-panel{padding:14px;gap:8px}
+  .prod{padding:6px;border-radius:16px;gap:6px}
+  .prod b{font-size:10.5px;padding:8px 4px;border-radius:9px}
+  .prod small{font-size:11px}
+  .about-card h2{font-size:8.4vw}
+  .about-cols{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .opts{margin-left:6px}
+  .send{width:100%}
+  .qa button{grid-template-columns:30px 1fr 26px;gap:12px;padding:14px}
+  .qa .n{width:30px;height:30px}
+  .qa-panel p{padding:0 14px 18px 56px}
+  .ft-top{grid-template-columns:1fr}
+  .ft-bottom a{margin:0 18px 0 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js [data-reveal]{opacity:1}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#home" class="logo" data-scroll aria-label="Мэйжик Тек Монголиа ХХК"><span class="logo-mark">MTM</span><span class="logo-text">Мэйжик тек<br>Монголиа ХХК</span></a>
+    <ul class="links" id="links">
+      <li><a href="#home" data-scroll data-sec="home" class="on">Home</a></li>
+      <li><a href="#about" data-scroll data-sec="about">About</a></li>
+      <li><a href="#contact" data-scroll data-sec="contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="signup" data-scroll>Sign up</a>
+    <button class="burger" id="burger" aria-label="Цэс" aria-expanded="false"><i class="ph ph-list"></i></button>
+  </div>
+</header>
+
+<main>
+<!-- ================================================
+     HOME
+     ================================================ -->
+<section id="home" class="hero">
+  <div class="wrap">
+    <div class="hero-box">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <h1><span class="ln"><span>Retail</span></span><span class="ln"><span>tech<small>vending</small></span></span></h1>
+          <!-- TODO: эх хувилбарын текстийг баталгаажуулах -->
+          <p data-hero>Magic Store нь хэрэглэгчийн өдөр тутмын хэрэгцээг хүссэн цагт нь, хамгийн ойр байршлаас хангах технологид суурилсан, 24/7 ажиллагаатай ухаалаг өөртөө үйлчлэх худалдааны байгууламж юм.</p>
+        </div>
+      </div>
+      <!-- Бодит фотогоор солих: img/machine-cut.webp, img/healthy-cut.webp (дэвсгэргүй PNG/WebP) -->
+      <div class="machines-fly" id="fly" aria-hidden="true">
+        <img class="mf-a" src="img/machine-cut.webp" width="789" height="1145" alt="">
+        <img class="mf-b" src="img/healthy-cut.webp" width="711" height="1000" alt="">
+      </div>
+    </div>
+
+    <!-- 3 cards -->
+    <div class="cards">
+      <a href="#about" data-scroll class="card c1" data-card>
+        <span class="mini">Magic<span>store</span></span>
+        <h3>Magic store гэж юу вэ?</h3>
+        <span class="sq"><i class="ph-bold ph-caret-right"></i></span>
+        <img src="img/machine-cut.webp" width="789" height="1145" alt="" loading="lazy">
+      </a>
+      <a href="#faq" data-scroll class="card c2" data-card>
+        <div class="top"><h3>Яагаад Magic store вэ?</h3></div>
+        <div class="bottom"></div>
+        <img src="img/question-cut.webp" width="396" height="508" alt="" loading="lazy">
+        <span class="card-arrow"><i class="ph-bold ph-caret-right"></i></span>
+      </a>
+      <a href="#faq" data-scroll class="card c3" data-card>
+        <div class="top"><h3>Программ хангамж</h3><small>Vending Management System (VMS)</small></div>
+        <div class="bottom"><img src="img/laptop-cut.webp" width="955" height="607" alt="" loading="lazy"></div>
+        <span class="card-arrow"><i class="ph-bold ph-caret-right"></i></span>
+      </a>
+    </div>
+
+    <!-- ХУДАЛДААНЫ АВТОМАТ МАШИН -->
+    <div class="machines" data-reveal>
+      <div class="m-head">
+        <div>
+          <span class="eyebrow">Magic Store</span>
+          <h2>Худалдааны <span>автомат машин</span></h2>
+        </div>
+        <!-- TODO: эх хувилбарын текстийг баталгаажуулах -->
+        <p>Бид үйл ажиллагаандаа дэвшилтэт технологийг нэвтрүүлж, худалдаа, борлуулалтын салбарт шинэ хэрэглээг бий болгож, хүний оролцоогүй худалдааг технологийн тусламжтайгаар үйлчилгээний соёл болгон түгээж байна.</p>
+      </div>
+      <!-- TODO: тоон үзүүлэлтийн шошгыг баталгаажуулах -->
+      <div class="stats">
+        <div class="stat"><i class="ph ph-map-pin"></i><div><b><em>+</em><span data-count="2500">2500</span></b><span>Байршил</span></div></div>
+        <div class="stat"><i class="ph ph-users-three"></i><div><b><em>+</em><span data-count="3000000" data-comma>3,000,000</span></b><span>Хэрэглэгч</span></div></div>
+        <div class="stat"><i class="ph ph-storefront"></i><div><b><em>+</em><span data-count="480">480</span></b><span>Хамтрагч байгууллага</span></div></div>
+        <div class="stat"><i class="ph ph-user-plus"></i><div><b><em>+</em><span data-count="60">60</span></b><span>Гэрээт харилцагчийн тоо</span></div></div>
+      </div>
+    </div>
+
+    <!-- MAIN PRODUCTS -->
+    <div class="products">
+      <div class="p-panel" data-reveal>
+        <figure class="prod"><div class="pw"><img src="img/healthy.webp" width="700" height="1050" alt="Healthy food vending" loading="lazy"></div><b>Healthy food vending</b><small>Эрүүл хоол</small></figure>
+        <figure class="prod"><div class="pw"><img src="img/frozen.webp" width="700" height="1050" alt="Frozen food vending" loading="lazy"></div><b>Frozen food vending</b><small>Хөлдөөсөн хоол</small></figure>
+        <figure class="prod"><div class="pw"><img src="img/hot.webp" width="700" height="1050" alt="Hot food vending" loading="lazy"></div><b>Hot food vending</b><small>Халуун хоол</small></figure>
+      </div>
+      <div class="p-copy" data-reveal>
+        <span class="eyebrow">Бүтээгдэхүүн</span>
+        <h2>Main <span>products</span></h2>
+        <p>Байршлын онцлогт тохирсон гурван төрлийн худалдааны автомат машин.</p>
+        <ul class="p-list">
+          <li><i class="ph-bold ph-check"></i>24/7 ажиллагаатай</li>
+          <li><i class="ph-bold ph-check"></i>Цахим төлбөр</li>
+          <li><i class="ph-bold ph-check"></i>VMS-ээр хянагдана</li>
+        </ul>
+        <a href="#contact" class="more" data-scroll>MORE <i class="ph-bold ph-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     ABOUT
+     ================================================ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-card">
+      <div class="about-grid">
+        <div class="about-left">
+          <h2><span class="ln"><span>Товч</span></span><span class="ln"><span>танилцуулга</span></span></h2>
+          <div class="motto" data-reveal><small>Уриа үг</small><b>Танаас 5 алхамд</b></div>
+        </div>
+        <div>
+          <p class="about-text" data-reveal><strong>"Мэйжик Тек Монголиа" ХХК</strong> нь Дэлхийн зах зээлд тэргүүлж буй дэвшилтэт техник технологийн шийдлийг ашиглан, хэрэглэгчдэд цаг хугацаа хэмнэсэн, үйл ажиллагааг нь хялбаршуулсан, чанарын шаардлага хангасан найдвартай бүтээгдэхүүн, үйлчилгээг үзүүлэн Монгол улсын худалдаа үйлчилгээний салбарт цогц экосистемийг хөгжүүлж, <strong>"Хэрэглээний шинэ соёл"</strong>-ыг түгээн дэлгэрүүлэх зорилготой ажиллаж байна.</p>
+          <div class="about-cols">
+            <div class="ab-item" data-reveal><i class="ph-light ph-target"></i><h4>Эрхэм зорилго</h4><ul><li><i class="ph-bold ph-check"></i>Технологид суурилсан</li><li><i class="ph-bold ph-check"></i>Цаг хугацаа хэмнэсэн</li><li><i class="ph-bold ph-check"></i>Хэрэглээг хялбаршуулсан</li></ul></div>
+            <!-- TODO: Алсын харааны текстийг оруулах -->
+            <div class="ab-item" data-reveal><i class="ph-light ph-eye"></i><h4>Алсын хараа</h4><p class="todo">Алсын харааны текст энд орно</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Бодит фотогоор солих: img/store.webp -->
+    <div class="store-photo" data-photo><img src="img/store.webp" width="1536" height="864" alt="Magic Store байршлын дотор тал" loading="lazy"></div>
+
+  </div>
+</section>
+
+<!-- ================================================
+     FAQ
+     ================================================ -->
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="faq-head" data-reveal>
+      <h2>Түгээмэл <span>асуултууд</span></h2>
+      <p>Magic Store-ийн талаар хамгийн их асуудаг асуултууд</p>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+    <p class="faq-more" data-reveal>Хариултаа олсонгүй юу?<a href="#contact" data-scroll>Бидэнтэй холбогдох</a></p>
+  </div>
+</section>
+
+<!-- ================================================
+     CONTACT
+     ================================================ -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="order">
+      <h2 data-reveal>Захиалга өгөх</h2>
+      <p class="sub" data-reveal>Доорх мэдээллийг бөглөөрэй. Бид удахгүй тантай холбогдох болно</p>
+      <form class="form" id="orderForm" novalidate>
+        <div class="field" data-f="dir" data-reveal>
+          <div class="sel-wrap">
+            <label for="dir" class="vh">Үйл ажиллагааны чиглэл</label>
+            <select class="big" id="dir" name="dir">
+              <option value="">Үйл ажиллагааны чиглэл</option>
+              <option value="place">Magic store байршуулах хүсэлт</option>
+              <option value="rent">Magic store түрээслэх хүсэлт</option>
+            </select>
+            <span class="chev"><i class="ph-bold ph-caret-down"></i></span>
+          </div>
+          <p class="opts">Сонголт-1: Magic store байршуулах хүсэлт<br>Сонголт-2: Magic store түрээслэх хүсэлт</p>
+          <span class="err">Чиглэлээ сонгоно уу.</span>
+        </div>
+        <div class="field" data-reveal>
+          <span class="lbl" id="typeLbl">Бизнесийн хэлбэр</span>
+          <div class="row2" role="radiogroup" aria-labelledby="typeLbl">
+            <div class="radio"><input type="radio" name="type" id="t1" value="person" checked><label for="t1">Хувь хүн</label></div>
+            <div class="radio"><input type="radio" name="type" id="t2" value="org"><label for="t2">Байгууллага</label></div>
+          </div>
+        </div>
+        <div class="row2" data-reveal>
+          <div class="field" data-f="last"><label for="last" class="vh">Овог</label><input class="big" id="last" name="last" placeholder="Овог" autocomplete="family-name"><span class="err">Овгоо оруулна уу.</span></div>
+          <div class="field" data-f="first"><label for="first" class="vh">Нэр</label><input class="big" id="first" name="first" placeholder="Нэр" autocomplete="given-name"><span class="err">Нэрээ оруулна уу.</span></div>
+        </div>
+        <div class="field" data-f="phone" data-reveal>
+          <label class="lbl" for="phone">Холбоо барих дугаар</label>
+          <input class="big" id="phone" name="phone" placeholder="Дугаар 1" inputmode="numeric" maxlength="8" autocomplete="tel">
+          <span class="err">8 оронтой дугаар оруулна уу.</span>
+        </div>
+        <div class="field" data-reveal>
+          <label class="lbl" for="note">Нэмэлт мэдээлэл</label>
+          <textarea class="big" id="note" name="note" rows="2" placeholder="Сонирхож буй үйлчилгээтэй холбоотой асуулт байвал илгээнэ үү"></textarea>
+        </div>
+        <button class="send" type="submit" data-reveal>Илгээх <i class="ph-bold ph-arrow-right"></i></button>
+      </form>
+      <div class="ok-box" id="okBox" role="status"><b>Хүсэлт хүлээн авлаа</b><p>Бид удахгүй тантай холбогдох болно.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="#home" class="logo" data-scroll aria-label="Мэйжик Тек Монголиа ХХК"><span class="logo-mark">MTM</span><span class="logo-text">Мэйжик тек<br>Монголиа ХХК</span></a>
+        <p>Технологид суурилсан, цаг хугацаа хэмнэсэн, хэрэглээг хялбаршуулсан худалдааны шинэ соёл. Танаас 5 алхамд.</p>
+        <div class="ft-social"><a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a><a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a></div>
+      </div>
+      <nav aria-label="Footer цэс">
+        <h4>Цэс</h4>
+        <ul class="ft-links">
+          <li><a href="#home" data-scroll>Нүүр</a></li>
+          <li><a href="#about" data-scroll>Бидний тухай</a></li>
+          <li><a href="#contact" data-scroll>Захиалга өгөх</a></li>
+          <li><a href="#faq" data-scroll>Түгээмэл асуулт</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>Холбоо барих</h4>
+        <!-- TODO: бодит холбоо барих мэдээлэл -->
+        <div class="ft-contact">
+          <div><i class="ph ph-envelope-simple"></i><span><small>И-мэйл</small><b>info@example.mn</b></span></div>
+          <div><i class="ph ph-phone"></i><span><small>Борлуулалтын алба</small><b>XXXX-XXXX</b></span></div>
+          <div><i class="ph ph-map-pin"></i><span><small>Хаяг</small><b>Улаанбаатар хот</b></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom"><span>© 2026 Мэйжик Тек Монголиа ХХК</span><span><a href="#">Нууцлалын бодлого</a><a href="#">Үйлчилгээний нөхцөл</a></span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+/* ---------- FAQ (дизайн дээрх 10 асуулт) ---------- */
+const FAQ=[
+ ['Magic Store гэж юу вэ?','Magic Store нь худалдагчгүй, 24/7 ажиллах боломжтой, ухаалаг өөртөө үйлчлэх автомат дэлгүүр юм. Хэрэглэгч хүссэн бүтээгдэхүүнээ хурдан, хялбар худалдан авах боломжтой.'],
+ ['Magic Store хэдэн цаг ажилладаг вэ?','Magic Store нь 24 цагийн турш, долоо хоногийн 7 өдөр хэрэглэгчдэд үйлчлэх зориулалттай.'],
+ ['Magic Store байрлуулахад хэр хэмжээний талбай шаардлагатай вэ?','Ердөө 2 м² орчим талбайд Magic Store байрлуулах боломжтой. Байршлын нөхцөл, цахилгаан хангамж болон тоноглолын төрлөөс хамаарч шаардлага өөрчлөгдөнө.'],
+ ['Magic Store хаана байрлуулах боломжтой вэ?','Оффис, их дээд сургууль, эмнэлэг, орон сууцны хотхон, үйлдвэр, худалдааны төв болон хүн хөдөлгөөн ихтэй үйлчилгээний газруудад байрлуулах боломжтой.'],
+ ['Magic Store-оос ямар бүтээгдэхүүн худалдан авах боломжтой вэ?','Ундаа, ус, амттан, хөнгөн зууш болон өдөр тутмын хэрэгцээний төрөл бүрийн бүтээгдэхүүнийг байршлын онцлогоос хамаарч худалдан авах боломжтой.'],
+ ['Худалдан авалтын төлбөрөө хэрхэн төлөх вэ?','Төхөөрөмжид дэмжигдсэн цахим төлбөрийн хэрэгслээр төлбөрөө төлж, бүтээгдэхүүнээ шууд авах боломжтой.'],
+ ['Magic Store-ийг байгууллагадаа хэрхэн байршуулах вэ?','Манай багтай холбогдон байршлын мэдээллээ өгснөөр талбай болон, шаардлагатай техникийн нөхцөл болон хамтын ажиллагааны хувилбарыг судлуулж болно.'],
+ ['Magic Store-ийн франчайз эзэмших боломжтой юу?','Тийм. Magic Store-ийн франчайз хамтын ажиллагааны боломж болон холбогдох нөхцөлийн талаар манай багтай холбогдон дэлгэрэнгүй мэдээлэл авах боломжтой.'],
+ ['Magic Store-ийн ажиллагааг хэрхэн хянадаг вэ?','Vending Management System (VMS) системийн тусламжтайгаар борлуулалт, бүтээгдэхүүний үлдэгдэл болон төхөөрөмжийн төлөвийг бодит хугацаанд хянах боломжтой.'],
+ ['Асуудал гарвал хаана хандах вэ?','Худалдан авалт болон төхөөрөмжийн ажиллагаатай холбоотой асуудал гарвал Magic Store-ийн хэрэглэгчийн үйлчилгээний сувагт хандаж, тусламж авах боломжтой.']
+];
+/* accordion: нэг удаад нэг асуулт нээлттэй */
+$('#faqList').innerHTML=FAQ.map(([q,a],i)=>`<div class="qa${i===0?' open':''}"><button aria-expanded="${i===0}" aria-controls="qp${i}" id="qb${i}"><span class="n">${i+1}</span><span>${q}</span><i class="ph-bold ph-plus pm"></i></button><div class="qa-panel" id="qp${i}" role="region" aria-labelledby="qb${i}"><div><p>${a}</p></div></div></div>`).join('');
+$$('.qa button').forEach(b=>b.addEventListener('click',()=>{
+  const qa=b.parentElement,open=!qa.classList.contains('open');
+  $$('.qa.open').forEach(o=>{o.classList.remove('open');o.querySelector('button').setAttribute('aria-expanded','false')});
+  if(open){qa.classList.add('open');b.setAttribute('aria-expanded','true')}
+  setTimeout(()=>window.ScrollTrigger&&ScrollTrigger.refresh(),500);
+}));
+
+/* ---------- order form ---------- */
+const form=$('#orderForm');
+const mark=(n,ok)=>{form.querySelector(`[data-f="${n}"]`).classList.toggle('invalid',!ok);return ok};
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const ok=[mark('dir',!!form.dir.value),mark('last',form.last.value.trim().length>1),mark('first',form.first.value.trim().length>1),mark('phone',/^\d{8}$/.test(form.phone.value))].every(Boolean);
+  if(!ok){form.querySelector('.invalid input,.invalid select')?.focus();return}
+  const b=form.querySelector('.send');b.disabled=true;b.firstChild.textContent='Илгээж байна ';
+  // TODO: backend API холбох
+  setTimeout(()=>{form.style.display='none';$('#okBox').classList.add('show');window.ScrollTrigger&&ScrollTrigger.refresh()},900);
+});
+form.addEventListener('input',e=>e.target.closest('.field')?.classList.remove('invalid'));
+form.addEventListener('change',e=>e.target.closest('.field')?.classList.remove('invalid'));
+$$('[inputmode=numeric]').forEach(i=>i.addEventListener('input',()=>i.value=i.value.replace(/\D/g,'')));
+
+
+/* ---------- nav ---------- */
+const nav=$('#nav'),navLinks=$$('.links a');
+const setActive=id=>navLinks.forEach(a=>a.classList.toggle('on',a.dataset.sec===id));
+$('#burger').addEventListener('click',()=>{const o=nav.classList.toggle('open');$('#burger').setAttribute('aria-expanded',o);$('#burger').innerHTML=o?'<i class="ph ph-x"></i>':'<i class="ph ph-list"></i>'});
+function goTo(h){const el=$(h);if(!el)return;const y=h==='#home'?0:el.getBoundingClientRect().top+scrollY-90;window.__lenis?__lenis.scrollTo(y,{duration:1.3}):scrollTo({top:y,behavior:RM?'auto':'smooth'})}
+$$('[data-scroll]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(!h?.startsWith('#'))return;e.preventDefault();nav.classList.remove('open');goTo(h)}));
+
+/* =========================================================
+   MOTION
+   ========================================================= */
+if(!window.gsap||!window.ScrollTrigger){document.documentElement.classList.remove('js');return}
+gsap.registerPlugin(ScrollTrigger);
+if(window.Lenis&&!RM){const l=new Lenis({lerp:.1});window.__lenis=l;l.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>l.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+
+/* зураг ачаалагдаж хуудасны өндөр өөрчлөгдөх бүрт scroll тооцооллыг шинэчилнэ */
+let rt=0;const refresh=()=>{clearTimeout(rt);rt=setTimeout(()=>ScrollTrigger.refresh(),150)};
+$$('img').forEach(i=>{if(!i.complete)i.addEventListener('load',refresh,{once:true})});
+if(document.fonts)document.fonts.ready.then(refresh);
+if(window.ResizeObserver)new ResizeObserver(refresh).observe(document.body);
+
+/* дэлгэцэнд орж ирэхэд нэг удаа ажиллуулах (IntersectionObserver: хуудасны өндөр өөрчлөгдсөн ч найдвартай) */
+const onView=(els,fn,margin='0px 0px -8% 0px')=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);fn(e.target)}}),{rootMargin:margin});(Array.isArray(els)?els:[els]).forEach(el=>el&&io.observe(el))};
+
+/* nav: дээд хэсгээс доош гүйлгэхэд цагаан дэвсгэртэй болно */
+const sentinel=document.createElement('div');sentinel.style.cssText='position:absolute;top:0;left:0;width:1px;height:40px;pointer-events:none';document.body.prepend(sentinel);
+new IntersectionObserver(([e])=>nav.classList.toggle('scrolled',!e.isIntersecting)).observe(sentinel);
+
+/* идэвхтэй цэс */
+const secIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setActive(e.target.id==='faq'?'contact':e.target.id)}),{rootMargin:'-50% 0px -50% 0px'});
+['home','about','contact','faq'].forEach(id=>secIO.observe($('#'+id)));
+
+/* hero: карт томорч, гарчиг доороос гарна. Машинууд байрнаасаа хөдлөхгүй, зөвхөн тодорно */
+const tl=gsap.timeline({defaults:{ease:'expo.out'}});
+tl.from('.nav-in>*',{y:-16,opacity:0,duration:.9,stagger:.06,clearProps:'transform'})
+  .from('.hero-card',{scale:.94,opacity:0,duration:1.2},0.1)
+  .from('.hero h1 .ln>span',{yPercent:110,duration:1.2,stagger:.1},0.35)
+  .from('[data-hero]',{y:18,opacity:0,duration:1},0.7)
+  .from('#fly img',{opacity:0,duration:1,ease:'power2.out',stagger:.15},0.45);
+
+/* cards */
+const cardsEl=$$('[data-card]');gsap.set(cardsEl,{y:60,opacity:0});
+onView($('.cards'),()=>gsap.to(cardsEl,{y:0,opacity:1,duration:1.1,ease:'expo.out',stagger:.12}));
+
+/* generic fade-up */
+onView($$('[data-reveal]'),el=>gsap.fromTo(el,{y:50,opacity:0},{y:0,opacity:1,duration:1.1,ease:'expo.out'}));
+
+/* stats */
+$$('[data-count]').forEach(el=>{const t=+el.dataset.count,o={v:0},fmt=v=>el.hasAttribute('data-comma')?Math.round(v).toLocaleString('en-US'):String(Math.round(v));el.textContent='0';
+  onView(el,()=>gsap.to(o,{v:t,duration:2.2,ease:'power3.out',onUpdate:()=>el.textContent=fmt(o.v)}))});
+const icons=$$('.stat>i');gsap.set(icons,{scale:.5,rotation:-15,opacity:0});
+onView($('.stats'),()=>gsap.to(icons,{scale:1,rotation:0,opacity:1,duration:1,ease:'back.out(2)',stagger:.1}));
+
+/* products */
+const prods=$$('.prod');gsap.set(prods,{y:60,opacity:0});
+onView($('.p-panel'),()=>gsap.to(prods,{y:0,opacity:1,duration:1.1,ease:'expo.out',stagger:.12}));
+
+/* about title */
+const aboutLn=$$('.about-card h2 .ln>span');gsap.set(aboutLn,{yPercent:110});
+onView($('.about-card'),()=>gsap.to(aboutLn,{yPercent:0,duration:1.2,ease:'expo.out',stagger:.1}));
+
+/* photos: нээгдэж томорно */
+$$('[data-photo]').forEach(p=>{
+  gsap.fromTo(p,{clipPath:'inset(6% 6% 6% 6% round 40px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',ease:'none',scrollTrigger:{trigger:p,start:'top 95%',end:'top 50%',scrub:true}});
+  gsap.fromTo(p.querySelector('img'),{scale:1.15},{scale:1,ease:'none',scrollTrigger:{trigger:p,start:'top bottom',end:'bottom top',scrub:true}});
+});
+
+/* faq */
+onView($$('.qa'),el=>gsap.fromTo(el,{y:30,opacity:0},{y:0,opacity:1,duration:.9,ease:'expo.out'}));
+
+addEventListener('load',()=>ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>

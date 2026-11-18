@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "magicstore",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5518"],
+      "port": 5518
+    }
+  ]
+}
