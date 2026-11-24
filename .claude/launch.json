@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "5518"],
       "port": 5518
+    },
+    {
+      "name": "archive",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5519", "--bind", "127.0.0.1", "--directory", "../magicStore_archive"],
+      "port": 5519
     }
   ]
 }
