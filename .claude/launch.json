@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "magicstore",
-      "runtimeExecutable": "python",
+      "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "5518"],
       "port": 5518
     }
