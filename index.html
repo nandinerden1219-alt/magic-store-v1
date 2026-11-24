@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23280D38'/%3E%3Cstop offset='.6' stop-color='%237307E1'/%3E%3Cstop offset='1' stop-color='%23F5EBFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
@@ -44,7 +44,7 @@
   --grad:linear-gradient(180deg,#280D38 0%,#7307E1 62%,#F5EBFF 100%);
   --ease:cubic-bezier(.22,1,.36,1);
   --gut:clamp(16px,3.5vw,40px);
-  --wide:"Unbounded",system-ui,sans-serif;
+  --wide:var(--sans);
   --sans:"Manrope",system-ui,sans-serif;
   --vm-fs:clamp(6px,min(1.32svh,1.15vw),14px);
   --vm-w:calc(32 * var(--vm-fs));
@@ -63,7 +63,7 @@ section{position:relative;scroll-margin-top:90px}
 .skip:focus{top:12px}
 .sec{padding:clamp(56px,7vw,96px) 0}
 .eyebrow{display:inline-flex;align-items:center;height:30px;padding:0 14px;border-radius:999px;background:var(--lav);color:var(--purple);font-size:12.5px;font-weight:700}
-.h2{font-weight:800;font-size:clamp(30px,3.6vw,48px);line-height:1.05;letter-spacing:-.035em}
+.h2{font-family:var(--wide);font-weight:700;font-size:clamp(26px,3.2vw,44px);line-height:1.1;letter-spacing:-.035em}
 .h2 span{color:var(--purple)}
 .lead{font-size:clamp(16px,1.3vw,18px);line-height:1.7;color:var(--ink-2);max-width:52ch}
 .link-arrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:16px;text-decoration:none;color:var(--purple)}
@@ -81,6 +81,7 @@ section{position:relative;scroll-margin-top:90px}
 .nav.scrolled[data-theme=dark]{background:rgba(40,13,56,.55);box-shadow:0 1px 0 rgba(255,255,255,.08)}
 .nav-in{max-width:1200px;margin:0 auto;padding:0 var(--gut);height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;justify-self:start}
+.logo-img{width:44px;height:44px;border-radius:12px;display:block}
 .logo-mark{font-family:var(--wide);font-weight:800;font-size:28px;letter-spacing:-.08em;transform:skewX(-16deg);background:linear-gradient(90deg,#7307E1,#280D38);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1;padding-right:3px}
 .logo-text{font-family:var(--wide);font-weight:700;font-size:10px;line-height:1.15;letter-spacing:-.02em;color:var(--purple);text-transform:uppercase;transition:color .4s}
 .nav[data-theme=dark] .logo-mark,.footer .logo-mark{background:linear-gradient(90deg,#fff,#F5EBFF);-webkit-background-clip:text;background-clip:text}
@@ -106,7 +107,7 @@ section{position:relative;scroll-margin-top:90px}
 .layer{position:absolute;inset:0;z-index:3;display:grid;grid-template-columns:1.25fr var(--vm-w) 1fr;gap:clamp(16px,2.4vw,40px);align-items:center;padding:92px var(--gut) 40px;pointer-events:none;max-width:1440px;margin:0 auto}
 .layer a,.layer button{pointer-events:auto}
 .hero-copy{color:#fff}
-.hero-title{grid-column:1;font-family:var(--wide);font-weight:700;font-size:clamp(46px,5.6vw,92px);line-height:.95;letter-spacing:-.045em}
+.hero-title{grid-column:1;font-family:"Unbounded",var(--sans);font-weight:700;font-size:clamp(46px,5.6vw,92px);line-height:.95;letter-spacing:-.045em}
 .hero-title .ln{display:block;overflow:hidden;padding-bottom:.05em}
 .hero-title .ln>span{display:inline-block}
 .hero-side{grid-column:3;justify-self:end;max-width:340px;display:grid;gap:22px;justify-items:end;text-align:right}
@@ -118,13 +119,16 @@ section{position:relative;scroll-margin-top:90px}
 .step h2{font-weight:800;font-size:clamp(34px,3.8vw,58px);line-height:1.04;letter-spacing:-.04em}
 .step p{font-size:17px;line-height:1.6;color:var(--ink-2)}
 .step .pills{justify-content:flex-end}
+.swap{position:relative;width:clamp(140px,30vh,280px);aspect-ratio:1;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 24px 50px -28px rgba(40,13,56,.5)}
+.swap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .8s}
+.swap img.on{opacity:1}
 .step--dark{color:#fff}
 .step--dark p{color:rgba(255,255,255,.85)}
 .step--dark .step-tag{background:#fff;color:var(--purple)}
 .step--dark .pill{background:rgba(255,255,255,.16);color:#fff}
 .step--dark .link-arrow{color:#fff}
 /* hero: том бичиг машины ард */
-.hero-big{position:absolute;inset:0;z-index:1;display:grid;grid-template-columns:1fr calc(var(--vm-w) * 1.2) 1fr;align-items:center;padding:0 var(--gut);color:#fff;font-size:clamp(48px,7.5vw,150px);line-height:.85;pointer-events:none}
+.hero-big{position:absolute;inset:0;z-index:1;display:grid;grid-template-columns:1fr calc(var(--vm-w) * 1.2) 1fr;align-items:center;padding:0 var(--gut);color:#fff;font-size:clamp(36px,min(7.5vw,calc((100vw - 2 * var(--gut) - 1.2 * var(--vm-w)) / 9.8)),150px);line-height:.85;pointer-events:none}
 .hb-l{grid-column:1;text-align:right}
 .hb-r{grid-column:3}
 .hero-copy .hero-side{grid-column:1;justify-self:start;align-self:center;text-align:left;justify-items:start;max-width:400px}
@@ -136,6 +140,106 @@ section{position:relative;scroll-margin-top:90px}
 html:not(.js) .step{display:none}
 .stage{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-46%);perspective:1600px}
 .tilt{transform-style:preserve-3d}
+/* desktop: "Magic Store гэж юу вэ" хэсэг нь слайд шиг: зүүн дээр том гарчиг, баруун доор зураг, зүүн доор #Танаас 5 алхамд */
+.hero-tag,.slide-vm{display:none}
+.why2-art,.why2-list,.why2-rail{display:none}
+.why2-copy{display:grid;gap:14px;justify-items:center;text-align:center}
+@media (min-width:901px){
+  .layer.step--why2{grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);justify-items:stretch;align-items:center;text-align:left;padding-top:88px;padding-bottom:32px}
+  .why2-art{display:block;position:relative;justify-self:center;align-self:center;height:min(72svh,640px);aspect-ratio:4/5;max-width:100%;}
+  .why2-art img{mix-blend-mode:multiply;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:scale(.96);transition:opacity .6s var(--ease),transform .8s var(--ease)}
+  .why2-art img.on{opacity:1;transform:none}
+  .why2-copy{justify-items:start;text-align:left;max-width:580px;align-self:center;padding-bottom:36px}
+  .step--why2 h2{font-size:clamp(30px,3.6vw,56px);text-align:left}
+  .why2-list{display:grid;width:100%;margin:14px 0 6px;min-height:clamp(120px,24svh,210px)}
+  .why2-list li{grid-area:1/1;display:grid;gap:10px;align-content:center;opacity:0;transform:translateY(28px);transition:opacity .5s var(--ease),transform .7s var(--ease)}
+  .why2-list li.on{opacity:1;transform:none}
+  .why2-list b{font-family:var(--wide);font-weight:700;font-size:clamp(14px,1.4vw,18px);letter-spacing:.08em;color:var(--purple)}
+  .why2-list span{font-family:var(--wide);font-weight:700;font-size:clamp(28px,3.6vw,56px);line-height:1.05;letter-spacing:-.035em;text-wrap:balance}
+  .why2-rail{display:flex;gap:6px;margin:0 0 18px}
+  .why2-rail span{width:32px;height:3px;border-radius:3px;background:rgba(40,13,56,.15);transition:background .4s}
+  .why2-rail span.on{background:var(--purple)}
+  .step--why2 .pills--why{display:none}
+}
+.step .pills--why{max-width:880px;gap:10px;margin-bottom:6px}
+.step .pills--why .pill{height:44px;padding:0 18px;font-size:16px}
+/* VMS: 10 зүйл дэлгэц дээр нэг нэгээрээ том гарна */
+.vms-tabs{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);margin-top:clamp(28px,4vw,48px);align-items:stretch}
+.vms-list{display:grid;gap:4px;align-content:start}
+.vms-list button{position:relative;display:grid;grid-template-columns:44px 1fr;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;text-align:left;font-weight:700;font-size:clamp(15px,1.3vw,17px);line-height:1.3;color:var(--ink-2);overflow:hidden;transition:background .3s,color .3s}
+.vms-list button b{font-family:var(--wide);font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--ink-3);transition:color .3s}
+.vms-list button:hover{background:rgba(115,7,225,.06)}
+.vms-list button.on{background:var(--lav);color:var(--deep)}
+.vms-list button.on b{color:var(--purple)}
+.vms-list button::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--purple);transform:scaleX(0);transform-origin:left}
+.vms-list button.on.auto::after{animation:vmsFill 6s linear forwards}
+@keyframes vmsFill{to{transform:scaleX(1)}}
+.vms-panels{position:relative;display:grid;overflow:hidden;color:#fff;background:linear-gradient(150deg,var(--deep) 0%,#4a0f8f 55%,var(--purple) 100%);border-radius:32px;padding:clamp(28px,4vw,56px) clamp(28px,4vw,56px) clamp(96px,10vw,120px);min-height:420px;box-shadow:0 40px 80px -44px rgba(115,7,225,.8)}
+.vms-panels::before{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.22),transparent)}
+.vms-panel{grid-area:1/1;position:relative;display:grid;align-content:center;justify-items:start;gap:16px;visibility:hidden;opacity:0;transform:translateY(16px);transition:opacity .45s var(--ease),transform .6s var(--ease),visibility 0s .45s}
+.vms-panel::before{content:attr(data-n);position:absolute;right:0;bottom:-.18em;font-family:var(--wide);font-weight:700;font-size:clamp(120px,16vw,220px);line-height:1;letter-spacing:-.06em;color:rgba(255,255,255,.07);pointer-events:none}
+.vms-gfx{position:absolute;left:0;right:0;bottom:calc(-1 * clamp(76px,8vw,92px));height:56px}
+.vg{display:block;width:100%;height:100%;overflow:visible;fill:none;stroke:rgba(255,255,255,.7);stroke-width:2;stroke-linecap:round}
+.vg .f{fill:rgba(255,255,255,.6);stroke:none}
+.vg .draw{stroke-dasharray:100;animation:vgDraw 3.4s ease-in-out infinite}
+@keyframes vgDraw{0%{stroke-dashoffset:100}60%,100%{stroke-dashoffset:0}}
+.vg .gb{transform-box:fill-box;transform-origin:bottom;animation:vgBar var(--d,2s) ease-in-out infinite alternate}
+@keyframes vgBar{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
+.vg .gx{transform-box:fill-box;transform-origin:left;animation:vgX var(--d,2.4s) ease-in-out infinite alternate}
+@keyframes vgX{from{transform:scaleX(.25)}to{transform:scaleX(1)}}
+.vg .dt{transform-box:fill-box;transform-origin:center;animation:vgDot 2s ease-in-out infinite}
+@keyframes vgDot{50%{opacity:.3;transform:scale(1.6)}}
+.vg .ring{transform-box:fill-box;transform-origin:center;animation:vgRing 2.4s ease-out infinite}
+@keyframes vgRing{from{transform:scale(.4);opacity:.9}to{transform:scale(2.6);opacity:0}}
+.vg .knob{animation:vgKnob var(--d,3s) ease-in-out infinite alternate}
+@keyframes vgKnob{to{transform:translateX(var(--x,120px))}}
+.vg .spin{transform-box:fill-box;transform-origin:center;animation:vgSpin 7s linear infinite}
+@keyframes vgSpin{to{transform:rotate(360deg)}}
+.vg .pop{animation:vgPop 3.4s ease-in-out infinite}
+@keyframes vgPop{0%,12%{opacity:.12}40%,100%{opacity:1}}
+.vms-panel.on{visibility:visible;opacity:1;transform:none;transition-delay:0s}
+.vms-panel i{width:64px;height:64px;border-radius:20px;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);color:#fff;display:grid;place-items:center;font-size:32px}
+.vms-panel small{font-weight:700;font-size:14px;color:var(--lav);letter-spacing:.08em;opacity:.8}
+.vms-panel h3{font-family:var(--wide);font-weight:700;font-size:clamp(24px,2.8vw,44px);line-height:1.08;letter-spacing:-.035em;color:#fff;text-wrap:balance}
+.vms-panel p{font-size:clamp(16px,1.4vw,20px);line-height:1.55;color:rgba(255,255,255,.82);max-width:42ch}
+.vms-panel p b{color:#fff;font-weight:700}
+@media (max-width:900px){
+  .vms-tabs{grid-template-columns:1fr}
+  .vms-list{display:flex;overflow-x:auto;gap:8px;padding-bottom:6px;scrollbar-width:none}
+  .vms-list button{display:flex;flex:none;white-space:nowrap;padding:12px 16px;background:var(--lav)}
+  .vms-list button b{display:none}
+}
+/* слайд загвар: том том гарчиг + доор нь зураг */
+.slide-h{font-family:var(--wide);font-weight:700;font-size:clamp(22px,3.6vw,58px);line-height:1.15;letter-spacing:-.035em;text-transform:uppercase;max-width:13em;text-wrap:balance}
+.slide-h mark{background:#E9B6F1;color:var(--deep);padding:0 .12em;border-radius:.12em}
+.slide-img{display:block;height:auto;margin-top:clamp(28px,5vw,64px)}
+.slide-pay{width:min(100%,520px);margin-left:clamp(0px,18vw,300px);max-width:calc(100% - clamp(0px,18vw,300px))}
+.slide-plan{width:100%;max-width:960px}
+.slide-img{max-height:56svh;object-fit:contain;object-position:left}
+.layer.step--slide{align-content:start;justify-items:start;text-align:left;padding-top:clamp(96px,16svh,150px)}
+.step--slide .slide-h{font-size:clamp(22px,3.6vw,58px);max-width:13em}
+#pay .slide-h{font-family:"Unbounded",var(--sans);font-weight:700;font-size:clamp(20px,2.7vw,44px);line-height:1.2;letter-spacing:-.01em;color:#000}
+#pay .slide-h mark{color:#fff}
+@media (min-width:901px){
+  .layer.step--split{grid-template-columns:1fr 1fr;grid-template-rows:1fr;align-content:stretch;align-items:start;justify-items:stretch;text-align:left;padding-top:clamp(110px,19svh,170px);padding-bottom:clamp(36px,6svh,64px)}
+  .step--split .step-l{justify-self:start;justify-items:start;text-align:left;max-width:640px;gap:22px}
+  .step--split .step-tag{display:none}
+  /* төлбөр/байршлын зураг нь машины оронд (баруун талд) солигдоно */
+  .step--slide .slide-h{max-width:11em}
+  .step--slide .slide-img{position:absolute;right:clamp(var(--gut),6vw,120px);bottom:clamp(36px,6svh,64px);margin:0;width:min(56vw,860px);max-width:none;max-height:68svh;object-position:right bottom}
+  .step--slide .slide-pay{width:min(52vw,740px);right:clamp(var(--gut),4vw,80px);top:auto;bottom:clamp(36px,6svh,64px)}
+  .step--slide .slide-plan{right:0;bottom:0;max-height:78svh}
+  /* слайдын машин: баруун доод захаас гарсан, зүүн дээд буланд үлдсэн "Э?" үсгийг таслана */
+  .slide-vm{display:block;position:absolute;right:0;bottom:0;height:min(88svh,940px);width:auto;pointer-events:none;clip-path:polygon(26% 0,100% 0,100% 100%,0 100%,0 12%,26% 12%)}
+  .step--split h2{font-family:var(--wide);font-weight:700;font-size:clamp(28px,3.9vw,64px);line-height:1.05;letter-spacing:-.035em;text-transform:uppercase}
+  .step--split .step-r{grid-column:2;justify-self:end;align-self:end;justify-items:end;margin-right:clamp(0px,3vw,60px);max-width:none}
+  .step--split .swap{display:none}
+  .step--split .step-l{max-width:480px}
+  .step--split .hero-tag{display:grid;gap:2px;font-size:15px;position:absolute;left:var(--gut);bottom:clamp(36px,6svh,64px)}
+  .hero-tag em{color:var(--ink-2)}
+  .hero-tag b{color:var(--purple);font-weight:800;font-size:18px}
+}
+
 
 /* машины фото */
 .vm-photo{position:relative;width:calc(var(--vm-w) * 1.12);isolation:isolate}
@@ -147,17 +251,7 @@ html:not(.js) .step{display:none}
    ========================================================= */
 .prod-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,64px);align-items:end}
 .prod-head>div{display:grid;gap:14px;justify-items:start}
-.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(28px,4vw,48px)}
-.prod{border-radius:28px;padding:clamp(12px,1.4vw,16px) clamp(12px,1.4vw,16px) clamp(20px,2.2vw,26px);display:flex;flex-direction:column;color:#fff;box-shadow:0 30px 60px -36px rgba(40,13,56,.6)}
 /* брэндийн 3 өнгө: нил ягаан, гүн ягаан, градиент */
-.prod:nth-child(1){background:var(--purple)}
-.prod:nth-child(2){background:var(--deep);position:relative;z-index:2}
-.prod:nth-child(3){background:linear-gradient(150deg,var(--deep),var(--purple))}
-.prod-art{height:clamp(250px,24vw,320px);display:grid;place-items:end center;overflow:hidden;border-radius:20px;background:#fff}
-.prod-art img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;transition:transform .8s var(--ease)}
-.prod:hover .prod-art img{transform:scale(1.05)}
-.prod h3{margin-top:18px;padding:0 6px;font-weight:800;font-size:clamp(19px,1.7vw,23px);letter-spacing:-.02em}
-.prod h3 small{display:block;font-weight:600;font-size:13px;color:var(--lav);opacity:.75;margin-bottom:6px}
 
 /* =========================================================
    ХУДАЛДААНЫ АВТОМАТ МАШИН (stats)
@@ -276,6 +370,8 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
 .ft-contact>div{display:flex;gap:12px;align-items:flex-start}
 .ft-contact i{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:17px;flex:none;color:var(--lav)}
 .ft-contact small{display:block;font-size:12px;color:rgba(255,255,255,.5)}
+.ft-contact b a{color:inherit;text-decoration:none}
+.ft-contact b a:hover{text-decoration:underline}
 .ft-contact b{display:block;font-weight:600;font-size:15px;line-height:1.5;color:rgba(255,255,255,.92);margin-top:2px}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;color:rgba(255,255,255,.55)}
 .ft-bottom a{color:inherit;text-decoration:none;margin-left:20px}
@@ -287,8 +383,6 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
    RESPONSIVE
    ========================================================= */
 @media (max-width:1080px){
-  .prods{grid-template-columns:1fr 1fr}
-  .prods .prod:last-child{grid-column:1/-1}
   .order-grid,.about-grid{grid-template-columns:1fr}
   .order-copy{position:static}
 }
@@ -319,8 +413,6 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
   .ft-brand{grid-column:1/-1}
 }
 @media (max-width:640px){
-  .prods{grid-template-columns:1fr}
-  .prods .prod:last-child{grid-column:auto}
   .stats{grid-template-columns:1fr}
   .about-card h2{font-size:8.4vw}
   .about-cols{grid-template-columns:1fr}
@@ -330,7 +422,6 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
   .qa-panel p{padding:0 14px 18px 56px}
   .ft-top{grid-template-columns:1fr}
   .ft-bottom a{margin:0 18px 0 0}
-  .step .pills .pill:nth-child(3){display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -344,11 +435,11 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav" data-theme="dark">
   <div class="nav-in">
-    <a href="#home" class="logo" data-scroll aria-label="Magic Store, нүүр хуудас"><span class="logo-mark">MTM</span><span class="logo-text">Мэйжик тек<br>Монголиа ХХК</span></a>
+    <a href="#home" class="logo" data-scroll aria-label="Magic Store, нүүр хуудас"><img class="logo-img" src="img/logo.png" width="44" height="44" alt="Magic Store"></a>
     <ul class="links" id="links">
-      <li><a href="#home" data-scroll data-sec="home" class="on">Home</a></li>
-      <li><a href="#about" data-scroll data-sec="about">About</a></li>
-      <li><a href="#contact" data-scroll data-sec="contact">Contact</a></li>
+      <li><a href="#home" data-scroll data-sec="home" class="on">Нүүр</a></li>
+      <li><a href="#about" data-scroll data-sec="about">Бидний тухай</a></li>
+      <li><a href="#contact" data-scroll data-sec="contact">Холбоо барих</a></li>
     </ul>
     <a href="#contact" class="cta" data-scroll>Захиалга өгөх</a>
     <button class="burger" id="burger" aria-label="Цэс нээх" aria-expanded="false" aria-controls="links"><i class="ph ph-list"></i></button>
@@ -366,51 +457,62 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
   <div class="stage" aria-hidden="true">
     <div class="rise"><div class="tilt">
       <div class="vm-photo" id="heroVm">
-        <img src="img/machine-real.webp" width="669" height="1059" alt="" fetchpriority="high">
+        <img src="img/machine-hero2.png" width="560" height="750" alt="" fetchpriority="high">
       </div>
     </div></div>
   </div>
 
   <!-- hero -->
-  <div class="layer hero-copy">
-    <div class="hero-side">
-      <p>Magic Store нь хэрэглэгчийн өдөр тутмын хэрэгцээг хүссэн цагт нь, хамгийн ойр байршлаас хангах технологид суурилсан, 24/7 ажиллагаатай ухаалаг өөртөө үйлчлэх худалдааны байгууламж юм.</p>
-    </div>
-  </div>
 
   <!-- step 1: Magic Store гэж юу вэ? -->
-  <div class="layer step">
+  <div class="layer step step--split">
+    <img class="slide-vm" src="img/slide-machine.jpg" width="702" height="940" alt="Magic Store вэндинг машин" loading="lazy">
+    <div class="hero-tag"><em>#Танаас 5 алхамд</em><b>Magic store</b></div>
     <div class="step-l">
       <span class="step-tag"><i class="ph ph-storefront"></i>Magic Store</span>
       <h2>Magic Store гэж юу вэ?</h2>
-      <p>Худалдагчгүй, 24/7 ажиллах боломжтой, ухаалаг өөртөө үйлчлэх автомат дэлгүүр. Хэрэглэгч хүссэн бүтээгдэхүүнээ хурдан, хялбар худалдан авна.</p>
+      <p>Magic Store нь хэрэглэгчийн өдөр тутмын хэрэгцээг хүссэн цагт нь, хамгийн ойр байршлаас хангах технологид суурилсан, 24/7 ажиллагаатай ухаалаг өөртөө үйлчлэх худалдааны байгууламж юм.</p>
     </div>
     <div class="step-r">
-      <div class="pills"><span class="pill">Худалдагчгүй</span><span class="pill">24/7</span><span class="pill">Өөртөө үйлчлэх</span></div>
+      <div class="swap" id="swap"><img class="on" src="img/machine-a.webp" width="1772" height="1864" alt="Magic Store вэндинг машин" loading="lazy"><img src="img/machine-b.webp" width="1908" height="2000" alt="Magic Store вэндинг машин, дэлгэц болон төлбөрийн төхөөрөмж" loading="lazy"><img src="img/machine-real.webp" width="669" height="1059" alt="Magic Store вэндинг машин" loading="lazy"></div>
     </div>
   </div>
 
-  <!-- step 2: Яагаад Magic Store вэ? -->
-  <div class="layer step">
-    <div class="step-l">
-      <span class="step-tag"><i class="ph ph-question"></i>Яагаад</span>
+  <!-- step 2: төлбөр -->
+  <div class="layer step step--slide" id="pay">
+    <h2 class="slide-h">Бэлэн бус бүх төрлийн <mark>төлбөрийн</mark> систем</h2>
+    <img class="slide-img slide-pay" src="img/pay.png" width="660" height="490" alt="Apple Pay, hipay, monpay, pass зэрэг дэмжигдэх төлбөрийн системүүд" loading="lazy">
+  </div>
+
+  <!-- step 3: байршил -->
+  <div class="layer step step--slide" id="space">
+    <h2 class="slide-h">Хаана ч байрших боломжтой, зай талбайн зөв ашиглалт</h2>
+    <img class="slide-img slide-plan" src="img/plan.jpg" width="1040" height="710" alt="2 м² талбайд байршуулсан Magic Store" loading="lazy">
+  </div>
+
+  <!-- step 4: Яагаад Magic Store вэ? -->
+  <div class="layer step step--why2">
+    <div class="why2-art" id="why2Art" aria-hidden="true"><img class="on" src="img/why-self.jpg" alt="" loading="lazy"><img src="img/why-247.jpg" alt="" loading="lazy"><img src="img/why-promo.jpg" alt="" loading="lazy"><img src="img/pay.png" alt="" loading="lazy"><img src="img/why-vms.jpg" alt="" loading="lazy"><img src="img/why-service.jpg" alt="" loading="lazy"><img src="img/why-call.jpg" alt="" loading="lazy"><img src="img/why-power.jpg" alt="" loading="lazy"><img src="img/why-eco.jpg" alt="" loading="lazy"></div>
+    <div class="why2-copy">
       <h2>Яагаад Magic Store вэ?</h2>
-      <p>Ердөө 2 м² орчим талбайд багтана. Төхөөрөмжид дэмжигдсэн цахим төлбөрөөр төлж, бүтээгдэхүүнээ шууд авна.</p>
-    </div>
-    <div class="step-r">
-      <div class="pills"><span class="pill">2 м² талбай</span><span class="pill">Цахим төлбөр</span><span class="pill">24/7</span></div>
+      <p>Худалдан авалт, төлбөр, хяналт, засвар үйлчилгээ нэг системд.</p>
+      <ul class="why2-list"><li class="on"><b>01</b><span>Өөртөө үйлчлэх</span></li><li><b>02</b><span>24/7 тасралтгүй үйл ажиллагаа</span></li><li><b>03</b><span>Урамшууллын систем</span></li><li><b>04</b><span>Бүх төрлийн төлбөрийн шийдэл</span></li><li><b>05</b><span>VMS программ хангамж</span></li><li><b>06</b><span>Засвар үйлчилгээ</span></li><li><b>07</b><span>Нэгдсэн дуудлагын төв</span></li><li><b>08</b><span>Цахилгаан зарцуулалт бага</span></li><li><b>09</b><span>Байгаль орчинд ээлтэй</span></li></ul><div class="why2-rail" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="pills pills--why"><span class="pill">Өөртөө үйлчлэх</span><span class="pill">24/7 тасралтгүй үйл ажиллагаа</span><span class="pill">Урамшууллын систем</span><span class="pill">Бүх төрлийн төлбөрийн шийдэл</span><span class="pill">VMS программ хангамж</span><span class="pill">Засвар үйлчилгээ</span><span class="pill">Нэгдсэн дуудлагын төв</span><span class="pill">Цахилгаан зарцуулалт бага</span><span class="pill">Байгаль орчинд ээлтэй</span></div>
+      <a href="#contact" class="link-arrow" data-scroll>Захиалга өгөх <i class="ph ph-arrow-right"></i></a>
     </div>
   </div>
+</section>
 
-  <!-- step 3: Программ хангамж -->
-  <div class="layer step step--dark">
-    <div class="step-l">
-      <span class="step-tag"><i class="ph ph-chart-line-up"></i>Vending Management System</span>
-      <h2>Программ хангамж (VMS)</h2>
-      <p>VMS системийн тусламжтайгаар борлуулалт, бүтээгдэхүүний үлдэгдэл болон төхөөрөмжийн төлөвийг бодит хугацаанд хянана.</p>
+<!-- ================= VMS ================= -->
+<section class="sec" id="vms" data-nav="light">
+  <div class="wrap">
+    <div class="prod-head">
+      <div><span class="eyebrow">VMS</span><h2 class="h2">Программ <span>хангамж</span></h2></div>
+      <p class="lead">Vending Management System: олон байршлын машинуудыг нэг системээс хянаж, удирдах программ хангамж.</p>
     </div>
-    <div class="step-r">
-      <a href="#contact" class="link-arrow" data-scroll>Захиалга өгөх <i class="ph ph-arrow-right"></i></a>
+    <div class="vms-tabs">
+      <div class="vms-list" role="tablist" aria-label="VMS боломжууд"><button type="button" role="tab" id="vt0" aria-selected="true" aria-controls="vp0" tabindex="0" class="on"><b>01</b><span>Нэгдсэн удирдлага</span></button><button type="button" role="tab" id="vt1" aria-selected="false" aria-controls="vp1" tabindex="-1"><b>02</b><span>Бодит цагийн хяналт</span></button><button type="button" role="tab" id="vt2" aria-selected="false" aria-controls="vp2" tabindex="-1"><b>03</b><span>Борлуулалтын тайлан</span></button><button type="button" role="tab" id="vt3" aria-selected="false" aria-controls="vp3" tabindex="-1"><b>04</b><span>Бараа материалын удирдлага</span></button><button type="button" role="tab" id="vt4" aria-selected="false" aria-controls="vp4" tabindex="-1"><b>05</b><span>Орлогын хяналт</span></button><button type="button" role="tab" id="vt5" aria-selected="false" aria-controls="vp5" tabindex="-1"><b>06</b><span>Зардал бууруулах</span></button><button type="button" role="tab" id="vt6" aria-selected="false" aria-controls="vp6" tabindex="-1"><b>07</b><span>Доголдлын мэдэгдэл</span></button><button type="button" role="tab" id="vt7" aria-selected="false" aria-controls="vp7" tabindex="-1"><b>08</b><span>Алсын удирдлага</span></button><button type="button" role="tab" id="vt8" aria-selected="false" aria-controls="vp8" tabindex="-1"><b>09</b><span>Өгөгдөлд суурилсан шийдвэр</span></button><button type="button" role="tab" id="vt9" aria-selected="false" aria-controls="vp9" tabindex="-1"><b>10</b><span>Бизнесийн өргөжилт</span></button></div>
+      <div class="vms-panels"><article class="vms-panel on" role="tabpanel" id="vp0" data-n="01" aria-labelledby="vt0"><i class="ph ph-squares-four"></i><small>01 / 10</small><h3>Нэгдсэн удирдлага</h3><p>Олон байршлын машиныг нэг системээс хянаж удирдах.</p><p><b>Удирдлагын ажлыг төвлөрүүлнэ.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><path d="M160 28L30 10M160 28L85 46M160 28L235 8M160 28L292 44M160 28L10 40"/><circle class="f" cx="160" cy="28" r="7"/><circle class="f dt" style="animation-delay:0.0s" cx="30" cy="10" r="4"/><circle class="f dt" style="animation-delay:0.4s" cx="85" cy="46" r="4"/><circle class="f dt" style="animation-delay:0.8s" cx="235" cy="8" r="4"/><circle class="f dt" style="animation-delay:1.2s" cx="292" cy="44" r="4"/><circle class="f dt" style="animation-delay:1.6s" cx="10" cy="40" r="4"/></svg></div></article><article class="vms-panel" role="tabpanel" id="vp1" data-n="02" aria-labelledby="vt1"><i class="ph ph-activity"></i><small>02 / 10</small><h3>Бодит цагийн хяналт</h3><p>Машины төлөв, борлуулалт, үлдэгдлийн мэдээллийг хянах.</p><p><b>Асуудлыг эрт илрүүлнэ.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><path class="draw" pathLength="100" d="M0 28H100L112 6L130 50L144 28H210L222 16L234 40L246 28H320"/></svg></div></article><article class="vms-panel" role="tabpanel" id="vp2" data-n="03" aria-labelledby="vt2"><i class="ph ph-chart-bar"></i><small>03 / 10</small><h3>Борлуулалтын тайлан</h3><p>Машин, бүтээгдэхүүн, хугацаагаар тайлан гаргах.</p><p><b>Гүйцэтгэлийг харьцуулна.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><rect class="f gb" style="--d:1.4s" x="0" y="36" width="16" height="20" rx="3"/><rect class="f gb" style="--d:1.7s" x="23" y="22" width="16" height="34" rx="3"/><rect class="f gb" style="--d:2.0s" x="46" y="30" width="16" height="26" rx="3"/><rect class="f gb" style="--d:2.3s" x="69" y="12" width="16" height="44" rx="3"/><rect class="f gb" style="--d:2.6s" x="92" y="26" width="16" height="30" rx="3"/><rect class="f gb" style="--d:1.4s" x="115" y="16" width="16" height="40" rx="3"/><rect class="f gb" style="--d:1.7s" x="138" y="34" width="16" height="22" rx="3"/><rect class="f gb" style="--d:2.0s" x="161" y="8" width="16" height="48" rx="3"/><rect class="f gb" style="--d:2.3s" x="184" y="24" width="16" height="32" rx="3"/><rect class="f gb" style="--d:2.6s" x="207" y="18" width="16" height="38" rx="3"/><rect class="f gb" style="--d:1.4s" x="230" y="32" width="16" height="24" rx="3"/><rect class="f gb" style="--d:1.7s" x="253" y="14" width="16" height="42" rx="3"/><rect class="f gb" style="--d:2.0s" x="276" y="28" width="16" height="28" rx="3"/><rect class="f gb" style="--d:2.3s" x="299" y="20" width="16" height="36" rx="3"/></svg></div></article><article class="vms-panel" role="tabpanel" id="vp3" data-n="04" aria-labelledby="vt3"><i class="ph ph-package"></i><small>04 / 10</small><h3>Бараа материалын удирдлага</h3><p>Барааны үлдэгдлийг хянаж, нөхөн дүүргэлтийг төлөвлөх.</p><p><b>Бараа тасалдах эрсдэлийг бууруулна.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><rect x="0" y="4" width="320" height="8" rx="4" fill="rgba(255,255,255,.14)" stroke="none"/><rect class="f gx" style="--d:2.2s" x="0" y="4" width="320" height="8" rx="4"/><rect x="0" y="20" width="320" height="8" rx="4" fill="rgba(255,255,255,.14)" stroke="none"/><rect class="f gx" style="--d:3.0s" x="0" y="20" width="320" height="8" rx="4"/><rect x="0" y="36" width="320" height="8" rx="4" fill="rgba(255,255,255,.14)" stroke="none"/><rect class="f gx" style="--d:2.6s" x="0" y="36" width="320" height="8" rx="4"/><rect x="0" y="48" width="320" height="8" rx="4" fill="rgba(255,255,255,.14)" stroke="none"/><rect class="f gx" style="--d:3.4s" x="0" y="48" width="320" height="8" rx="4"/></svg></div></article><article class="vms-panel" role="tabpanel" id="vp4" data-n="05" aria-labelledby="vt4"><i class="ph ph-coins"></i><small>05 / 10</small><h3>Орлогын хяналт</h3><p>Борлуулалтын орлого, төлбөрийн гүйлгээг тулгах.</p><p><b>Санхүүгийн ил тод байдлыг сайжруулна.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><path class="draw" pathLength="100" d="M0 52C50 50 90 38 140 32S230 18 320 4"/><circle class="f dt" cx="318" cy="5" r="4"/></svg></div></article><article class="vms-panel" role="tabpanel" id="vp5" data-n="06" aria-labelledby="vt5"><i class="ph ph-piggy-bank"></i><small>06 / 10</small><h3>Зардал бууруулах</h3><p>Шаардлагагүй очиж шалгах болон тээврийн давтамжийг багасгах.</p><p><b>Үйл ажиллагааны зардал хэмнэнэ.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><path class="draw" pathLength="100" d="M0 6C60 8 100 24 150 32S250 48 320 52"/><circle class="f dt" cx="318" cy="52" r="4"/></svg></div></article><article class="vms-panel" role="tabpanel" id="vp6" data-n="07" aria-labelledby="vt6"><i class="ph ph-warning"></i><small>07 / 10</small><h3>Доголдлын мэдэгдэл</h3><p>Төхөөрөмжийн алдаа, доголдлын мэдээлэл авах.</p><p><b>Засварын хариу арга хэмжээг түргэсгэнэ.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><circle class="f" cx="160" cy="28" r="7"/><circle class="ring" style="animation-delay:0.0s" cx="160" cy="28" r="14"/><circle class="ring" style="animation-delay:0.8s" cx="160" cy="28" r="14"/><circle class="ring" style="animation-delay:1.6s" cx="160" cy="28" r="14"/></svg></div></article><article class="vms-panel" role="tabpanel" id="vp7" data-n="08" aria-labelledby="vt7"><i class="ph ph-wifi-high"></i><small>08 / 10</small><h3>Алсын удирдлага</h3><p>Вэндингийн үнийн бодлогыг тус тусад нь хэрэгжүүлэх, тохиргоог зайнаас шинэчлэх.</p><p><b>Гар ажиллагааг багасгана.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><line x1="0" x2="320" y1="10" y2="10" stroke="rgba(255,255,255,.2)"/><circle class="f knob" style="--d:2.6s;--x:250px" cx="14" cy="10" r="6"/><line x1="0" x2="320" y1="28" y2="28" stroke="rgba(255,255,255,.2)"/><circle class="f knob" style="--d:3.4s;--x:180px" cx="14" cy="28" r="6"/><line x1="0" x2="320" y1="46" y2="46" stroke="rgba(255,255,255,.2)"/><circle class="f knob" style="--d:3.0s;--x:290px" cx="14" cy="46" r="6"/></svg></div></article><article class="vms-panel" role="tabpanel" id="vp8" data-n="09" aria-labelledby="vt8"><i class="ph ph-chart-line-up"></i><small>09 / 10</small><h3>Өгөгдөлд суурилсан шийдвэр</h3><p>Эрэлттэй бараа, ашигтай байршил, борлуулалтын чиг хандлагыг шинжлэх.</p><p><b>Нөөцийн хуваарилалтыг оновчилно.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><g class="spin"><circle cx="160" cy="28" r="22" stroke-width="8" stroke="rgba(255,255,255,.15)"/><circle cx="160" cy="28" r="22" stroke-width="8" pathLength="100" stroke-dasharray="64 36"/></g></svg></div></article><article class="vms-panel" role="tabpanel" id="vp9" data-n="10" aria-labelledby="vt9"><i class="ph ph-arrows-out"></i><small>10 / 10</small><h3>Бизнесийн өргөжилт</h3><p>Машины тоо өсөхөд процессыг стандартчилах.</p><p><b>Өргөжилтийн удирдлагыг хялбарчилна.</b></p><div class="vms-gfx" aria-hidden="true"><svg class="vg" viewBox="0 0 320 56"><circle class="f pop" style="animation-delay:0.00s" cx="10" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.12s" cx="30" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.24s" cx="50" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.36s" cx="70" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.48s" cx="90" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.60s" cx="110" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.72s" cx="130" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.84s" cx="150" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.96s" cx="170" cy="10" r="4"/><circle class="f pop" style="animation-delay:1.08s" cx="190" cy="10" r="4"/><circle class="f pop" style="animation-delay:1.20s" cx="210" cy="10" r="4"/><circle class="f pop" style="animation-delay:1.32s" cx="230" cy="10" r="4"/><circle class="f pop" style="animation-delay:1.44s" cx="250" cy="10" r="4"/><circle class="f pop" style="animation-delay:1.56s" cx="270" cy="10" r="4"/><circle class="f pop" style="animation-delay:1.68s" cx="290" cy="10" r="4"/><circle class="f pop" style="animation-delay:1.80s" cx="310" cy="10" r="4"/><circle class="f pop" style="animation-delay:0.24s" cx="10" cy="28" r="4"/><circle class="f pop" style="animation-delay:0.36s" cx="30" cy="28" r="4"/><circle class="f pop" style="animation-delay:0.48s" cx="50" cy="28" r="4"/><circle class="f pop" style="animation-delay:0.60s" cx="70" cy="28" r="4"/><circle class="f pop" style="animation-delay:0.72s" cx="90" cy="28" r="4"/><circle class="f pop" style="animation-delay:0.84s" cx="110" cy="28" r="4"/><circle class="f pop" style="animation-delay:0.96s" cx="130" cy="28" r="4"/><circle class="f pop" style="animation-delay:1.08s" cx="150" cy="28" r="4"/><circle class="f pop" style="animation-delay:1.20s" cx="170" cy="28" r="4"/><circle class="f pop" style="animation-delay:1.32s" cx="190" cy="28" r="4"/><circle class="f pop" style="animation-delay:1.44s" cx="210" cy="28" r="4"/><circle class="f pop" style="animation-delay:1.56s" cx="230" cy="28" r="4"/><circle class="f pop" style="animation-delay:1.68s" cx="250" cy="28" r="4"/><circle class="f pop" style="animation-delay:1.80s" cx="270" cy="28" r="4"/><circle class="f pop" style="animation-delay:1.92s" cx="290" cy="28" r="4"/><circle class="f pop" style="animation-delay:2.04s" cx="310" cy="28" r="4"/><circle class="f pop" style="animation-delay:0.48s" cx="10" cy="46" r="4"/><circle class="f pop" style="animation-delay:0.60s" cx="30" cy="46" r="4"/><circle class="f pop" style="animation-delay:0.72s" cx="50" cy="46" r="4"/><circle class="f pop" style="animation-delay:0.84s" cx="70" cy="46" r="4"/><circle class="f pop" style="animation-delay:0.96s" cx="90" cy="46" r="4"/><circle class="f pop" style="animation-delay:1.08s" cx="110" cy="46" r="4"/><circle class="f pop" style="animation-delay:1.20s" cx="130" cy="46" r="4"/><circle class="f pop" style="animation-delay:1.32s" cx="150" cy="46" r="4"/><circle class="f pop" style="animation-delay:1.44s" cx="170" cy="46" r="4"/><circle class="f pop" style="animation-delay:1.56s" cx="190" cy="46" r="4"/><circle class="f pop" style="animation-delay:1.68s" cx="210" cy="46" r="4"/><circle class="f pop" style="animation-delay:1.80s" cx="230" cy="46" r="4"/><circle class="f pop" style="animation-delay:1.92s" cx="250" cy="46" r="4"/><circle class="f pop" style="animation-delay:2.04s" cx="270" cy="46" r="4"/><circle class="f pop" style="animation-delay:2.16s" cx="290" cy="46" r="4"/><circle class="f pop" style="animation-delay:2.28s" cx="310" cy="46" r="4"/></svg></div></article></div>
     </div>
   </div>
 </section>
@@ -435,30 +537,7 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
   </div>
 </section>
 
-<!-- ================= MAIN PRODUCTS ================= -->
-<section class="sec" id="products" data-nav="light" style="padding-top:0">
-  <div class="wrap">
-    <div class="prod-head" data-reveal>
-      <div><span class="eyebrow">Бүтээгдэхүүн</span><h2 class="h2">Main <span>products</span></h2></div>
-      <p class="lead">Байршлын онцлогт тохирсон гурван төрлийн худалдааны автомат машин.</p>
-    </div>
-    <div class="prods">
-      <article class="prod" data-reveal>
-        <div class="prod-art"><img src="img/healthy.webp" width="700" height="1050" alt="Healthy food vending машин" loading="lazy"></div>
-        <h3><small>Healthy food vending</small>Эрүүл хоол</h3>
-      </article>
-      <article class="prod" data-reveal>
-        <div class="prod-art"><img src="img/frozen.webp" width="700" height="1050" alt="Frozen food vending машин" loading="lazy"></div>
-        <h3><small>Frozen food vending</small>Хөлдөөсөн хоол</h3>
-      </article>
-      <article class="prod" data-reveal>
-        <div class="prod-art"><img src="img/hot.webp" width="700" height="1050" alt="Hot food vending машин" loading="lazy"></div>
-        <h3><small>Hot food vending</small>Халуун хоол</h3>
-      </article>
-    </div>
-  </div>
-</section>
-
+<!-- ================= ТӨЛБӨР ================= -->
 
 <!-- ================= ABOUT ================= -->
 <section class="sec" id="about" data-nav="light" style="padding-top:0">
@@ -474,7 +553,7 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
           <div class="about-cols">
             <div class="ab-item" data-reveal><i class="ph-light ph-target"></i><h3>Эрхэм зорилго</h3><ul><li><i class="ph-bold ph-check"></i>Технологид суурилсан</li><li><i class="ph-bold ph-check"></i>Цаг хугацаа хэмнэсэн</li><li><i class="ph-bold ph-check"></i>Хэрэглээг хялбаршуулсан</li></ul></div>
             <!-- TODO: Алсын харааны текстийг оруулах -->
-            <div class="ab-item" data-reveal><i class="ph-light ph-eye"></i><h3>Алсын хараа</h3><p class="todo">Алсын харааны текст энд орно</p></div>
+            <!--             <div class="ab-item" data-reveal><i class="ph-light ph-eye"></i><h3>Алсын хараа</h3><p class="todo">Алсын харааны текст энд орно</p></div> -->
           </div>
         </div>
       </div>
@@ -521,6 +600,18 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
           </div>
           <span class="err">Чиглэлээ сонгоно уу.</span>
         </div>
+        <div class="field" data-f="loc">
+          <span class="lbl" id="locLbl">Байршил</span>
+          <div class="sel-wrap">
+            <select class="big" id="loc" name="location" aria-labelledby="locLbl" required>
+              <option value="">Сонгоно уу</option>
+              <!-- TODO: бодит байршлын жагсаалтаар солих -->
+              <option>Баянзүрх дүүрэг</option><option>Баянгол дүүрэг</option><option>Сүхбаатар дүүрэг</option><option>Сонгинохайрхан дүүрэг</option><option>Хан-Уул дүүрэг</option><option>Чингэлтэй дүүрэг</option><option>Налайх дүүрэг</option><option>Орон нутаг</option><option>Бусад</option>
+            </select>
+            <span class="chev" aria-hidden="true"><i class="ph-bold ph-caret-down"></i></span>
+          </div>
+          <span class="err">Байршлаа сонгоно уу.</span>
+        </div>
         <div class="field">
           <span class="lbl" id="typeLbl">Бизнесийн хэлбэр</span>
           <div class="row2" role="radiogroup" aria-labelledby="typeLbl">
@@ -556,16 +647,15 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
   <div class="wrap">
     <div class="ft-top">
       <div class="ft-brand">
-        <a href="#home" class="logo" data-scroll aria-label="Magic Store, нүүр хуудас"><span class="logo-mark">MTM</span><span class="logo-text">Мэйжик тек<br>Монголиа ХХК</span></a>
+        <a href="#home" class="logo" data-scroll aria-label="Magic Store, нүүр хуудас"><img class="logo-img" src="img/logo.png" width="44" height="44" alt="Magic Store"></a>
         <p>Технологид суурилсан, цаг хугацаа хэмнэсэн, хэрэглээг хялбаршуулсан худалдааны шинэ соёл. Танаас 5 алхамд.</p>
-        <!-- TODO: сошиал хаягуудаа оруулах -->
-        <div class="ft-social"><a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a><a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a></div>
+        <div class="ft-social"><a href="https://www.facebook.com/magicstore.mn.official/" aria-label="Facebook" target="_blank" rel="noopener"><i class="ph-fill ph-facebook-logo"></i></a><a href="https://www.instagram.com/magicstore.mn/" aria-label="Instagram" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i></a><a href="https://www.youtube.com/@MagicStore24.7" aria-label="YouTube" target="_blank" rel="noopener"><i class="ph-fill ph-youtube-logo"></i></a></div>
       </div>
       <nav aria-label="Footer цэс">
         <h4>Цэс</h4>
         <ul class="ft-links">
           <li><a href="#home" data-scroll>Нүүр</a></li>
-          <li><a href="#products" data-scroll>Бүтээгдэхүүн</a></li>
+          <li><a href="#vms" data-scroll>Программ хангамж</a></li>
           <li><a href="#about" data-scroll>Бидний тухай</a></li>
           <li><a href="#faq" data-scroll>Түгээмэл асуулт</a></li>
           <li><a href="#contact" data-scroll>Захиалга өгөх</a></li>
@@ -573,15 +663,13 @@ textarea.big{height:auto;min-height:110px;padding:18px 22px;resize:vertical;line
       </nav>
       <div>
         <h4>Холбоо барих</h4>
-        <!-- TODO: бодит холбоо барих мэдээлэл -->
         <div class="ft-contact">
-          <div><i class="ph ph-envelope-simple"></i><span><small>И-мэйл</small><b>info@example.mn</b></span></div>
-          <div><i class="ph ph-phone"></i><span><small>Борлуулалтын алба</small><b>XXXX-XXXX</b></span></div>
-          <div><i class="ph ph-map-pin"></i><span><small>Хаяг</small><b>Улаанбаатар хот</b></span></div>
+          <div><i class="ph ph-envelope-simple"></i><span><small>И-мэйл</small><b><a href="mailto:info@mtm.mn">info@mtm.mn</a></b></span></div>
+          <div><i class="ph ph-phone"></i><span><small>Утас</small><b><a href="tel:75056262">7505-6262</a></b></span></div>
         </div>
       </div>
     </div>
-    <div class="ft-bottom"><span>© <span id="yr">2026</span> Мэйжик Тек Монголиа ХХК</span><span><!-- TODO: бодит холбоос --><a href="#">Нууцлалын бодлого</a><a href="#">Үйлчилгээний нөхцөл</a></span></div>
+    <div class="ft-bottom"><span>© <span id="yr">2026</span> Мэйжик Тек Монголиа ХХК</span></div>
   </div>
 </footer>
 
@@ -615,7 +703,7 @@ const mark = (n, ok) => { form.querySelector(`[data-f="${n}"]`).classList.toggle
 form.addEventListener('submit', async e => {
   e.preventDefault();
   $('#formError').classList.remove('show');
-  const ok = [mark('dir', !!form.direction.value), mark('last', form.lastName.value.trim().length > 1), mark('first', form.firstName.value.trim().length > 1), mark('phone', /^\d{8}$/.test(form.phone.value))].every(Boolean);
+  const ok = [mark('dir', !!form.direction.value), mark('loc', !!form.location.value), mark('last', form.lastName.value.trim().length > 1), mark('first', form.firstName.value.trim().length > 1), mark('phone', /^\d{8}$/.test(form.phone.value))].every(Boolean);
   if (!ok) { form.querySelector('.invalid input,.invalid select')?.focus(); return; }
   const btn = form.querySelector('.send'); btn.disabled = true; btn.firstChild.textContent = 'Илгээж байна ';
   const data = Object.fromEntries(new FormData(form)); data.page = location.href; data.sentAt = new Date().toISOString();
@@ -624,8 +712,8 @@ form.addEventListener('submit', async e => {
       const res = await fetch(FORM_ENDPOINT, { method:'POST', headers:{ 'Content-Type':'application/json', 'Accept':'application/json' }, body: JSON.stringify(data) });
       if (!res.ok) throw new Error(res.status);
     } else {
-      await new Promise(r => setTimeout(r, 700));
-      console.info('[Magic Store] FORM_ENDPOINT тохируулаагүй тул хүсэлт илгээгдээгүй:', data);
+      console.warn('[Magic Store] FORM_ENDPOINT тохируулаагүй тул хүсэлт илгээгдээгүй:', data);
+      throw new Error('FORM_ENDPOINT is empty');
     }
     form.style.display = 'none'; const box = $('#okBox'); box.classList.add('show'); box.focus();
   } catch (err) {
@@ -635,6 +723,10 @@ form.addEventListener('submit', async e => {
 form.addEventListener('input', e => e.target.closest('.field')?.classList.remove('invalid'));
 form.addEventListener('change', e => e.target.closest('.field')?.classList.remove('invalid'));
 form.phone.addEventListener('input', e => e.target.value = e.target.value.replace(/\D/g, '').slice(-8)); // +976 / 8811-2233 paste-ийг 8 оронтой болгоно
+
+/* Magic Store гэж юу вэ: зураг 3 секунд тутам солигдоно */
+const sw = $$('#swap img'); let si = 0;
+if (!RM) setInterval(() => { sw[si].classList.remove('on'); si = (si + 1) % sw.length; sw[si].classList.add('on'); }, 3000);
 
 /* ---------- nav ---------- */
 const nav = $('#nav'), navLinks = $$('.links a'), burger = $('#burger');
@@ -655,6 +747,15 @@ $$('main section[id]').forEach(s => secIO.observe(s));
 /* ---------- reveal (IntersectionObserver: хуудасны өндөр өөрчлөгдсөн ч найдвартай) ---------- */
 const onView = (els, fn) => { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.unobserve(e.target); fn(e.target); } }), { rootMargin:'0px 0px -8% 0px' }); els.forEach(el => io.observe(el)); };
 
+/* ---------- VMS: tab, 6 сек тутам автоматаар солигдоно ---------- */
+const vt = $$('.vms-list button'), vp = $$('.vms-panel'), vbox = $('.vms-tabs'); let vi = 0, vtimer = null, vstop = RM;
+const vsel = i => { vi = (i + vt.length) % vt.length; vt.forEach((b, k) => { const on = k === vi; b.classList.toggle('on', on); b.classList.remove('auto'); b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; }); vp.forEach((p, k) => p.classList.toggle('on', k === vi)); if (vtimer) { void vt[vi].offsetWidth; vt[vi].classList.add('auto'); } };
+const vplay = () => { if (vstop || vtimer) return; vtimer = setInterval(() => vsel(vi + 1), 6000); vt[vi].classList.add('auto'); };
+const vpause = () => { clearInterval(vtimer); vtimer = null; vt.forEach(b => b.classList.remove('auto')); };
+vt.forEach((b, k) => { b.addEventListener('click', () => { vstop = true; vpause(); vsel(k); }); b.addEventListener('keydown', e => { const d = { ArrowDown:1, ArrowRight:1, ArrowUp:-1, ArrowLeft:-1 }[e.key]; if (!d) return; e.preventDefault(); vstop = true; vpause(); vsel(vi + d); vt[vi].focus(); }); });
+vbox.addEventListener('pointerenter', vpause); vbox.addEventListener('pointerleave', vplay);
+onView([vbox], vplay);
+
 /* =========================================================
    MOTION (GSAP)
    ========================================================= */
@@ -665,13 +766,11 @@ let rt = 0; const refresh = () => { clearTimeout(rt); rt = setTimeout(() => Scro
 if (window.ResizeObserver) new ResizeObserver(refresh).observe(document.body);
 
 /* reveals */
-onView($$('[data-reveal]'), el => gsap.fromTo(el, { y:40, opacity:0 }, { y:0, opacity:1, duration:1.1, ease:'expo.out' }));
+onView($$('[data-reveal]'), el => gsap.fromTo(el, { y:40, opacity:0 }, { y:0, opacity:1, duration:1.1, ease:'expo.out', delay:+el.dataset.delay || 0 }));
 /* текстийн node бүрийн үгийг span-д хийнэ (tag-ийн attribute-д хүрэхгүй) */
 const wrapWords = (el, mk) => el.innerHTML = el.innerHTML.replace(/(^|>)([^<]+)(?=<|$)/g, (m, p, t) => p + t.split(/(\s+)/).map(w => /\S/.test(w) ? mk(w) : w).join(''));
 /* гарчгийн үгс scroll-оор саарлаас бараан болж дүүрнэ */
 $$('.h2').forEach(h => { wrapWords(h, w => `<span class="aw">${w}</span>`); gsap.fromTo($$('.aw', h), { opacity:.15 }, { opacity:1, stagger:.1, ease:'none', scrollTrigger:{ trigger:h, start:'top 88%', end:'top 55%', scrub:true } }); });
-/* products: овоолсон картууд scroll-оор дэлгэгдэнэ (desktop) */
-if (!RM && matchMedia('(min-width:1081px)').matches) gsap.from('.prod', { xPercent:i => (1 - i) * 92, rotation:i => (i - 1) * 7, ease:'none', scrollTrigger:{ trigger:'.prods', start:'top 95%', end:'top 35%', scrub:.6 } });
 const at = $('.about-text'); wrapWords(at, w => `<span class="aw">${w}</span>`);
 gsap.fromTo('.about-text .aw', { opacity:.15 }, { opacity:1, stagger:.1, ease:'none', scrollTrigger:{ trigger:at, start:'top 80%', end:'bottom 50%', scrub:true } });
 $$('[data-count]').forEach(el => { const t = +el.dataset.count, o = { v:0 }, fmt = v => el.hasAttribute('data-comma') ? Math.round(v).toLocaleString('en-US') : String(Math.round(v)); el.textContent = '0'; onView([el], () => gsap.to(o, { v:t, duration:RM?.01:2.2, ease:'power3.out', onUpdate:() => el.textContent = fmt(o.v) })); });
@@ -707,29 +806,34 @@ if (!RM && matchMedia('(pointer:fine)').matches) {
 const steps = $$('.step');
 gsap.set(steps, { autoAlpha:0, y:50 });
 const tl = gsap.timeline({ defaults:{ ease:'power2.inOut' }, scrollTrigger:{
-  trigger:'#home', start:'top top', end:'+=300%', pin:true, scrub:RM ? true : .9, anticipatePin:1, invalidateOnRefresh:true,
+  trigger:'#home', start:'top top', end:() => matchMedia('(min-width:901px)').matches ? '+=420%' : '+=260%', pin:true, scrub:RM ? true : .9, anticipatePin:1, invalidateOnRefresh:true,
   onUpdate: updateNav
 }});
 window.__storyST = tl.scrollTrigger;
 /* эхэнд зөвхөн том бичиг + машин; scroll хийхэд бичиг гарч, тайлбар орж ирнэ */
-gsap.set('.hero-side p', { autoAlpha:0, y:30 });
 tl.to('.hero-big', { y:-80, autoAlpha:0, duration:1 })
-  .to('.hero-side p', { autoAlpha:1, y:0, duration:.8 }, '<.6') // том бичиг гарсны дараа, нэг газар давхцахгүй
-  .to('.hero-copy', { y:-80, autoAlpha:0, duration:1 })
   .to('.story-bg', { autoAlpha:0, duration:1 }, '<')
-  .to('.rise', { autoAlpha:0, scale:.9, duration:1 }, '<')
+  .to('.rise', { autoAlpha:0, scale:.8, y:-60, duration:1 }, '<') // hero-ийн машин арилж, доорх "Magic Store гэж юу вэ" зураг орно
   .addLabel('light', '<.5')
   .to(steps[0], { autoAlpha:1, y:0, duration:.7 }, '<.5') // hero гарах зуур орж ирнэ, хоосон дэлгэц үлдэхгүй
+  .fromTo('#swap', { scale:.6, rotation:-5, autoAlpha:0 }, { scale:1, rotation:0, autoAlpha:1, duration:1, ease:'back.out(1.5)' }, '<')
+  .fromTo(steps[0].querySelectorAll('.step-l > *'), { y:40, autoAlpha:0 }, { y:0, autoAlpha:1, duration:.7, stagger:.15 }, '<.15')
   .to({}, { duration:1.2 })
+  .fromTo('.slide-vm', { x:90, autoAlpha:0 }, { x:0, autoAlpha:1, duration:1, ease:'power3.out' }, 'light+=.5')
   .to(steps[0], { autoAlpha:0, y:-50, duration:.6 })
-  .to('.tint-lav', { autoAlpha:1, duration:.8 }, '<')
-  .to(steps[1], { autoAlpha:1, y:0, duration:.7 }, '>-.3')
-  .to({}, { duration:1.2 })
+  .to(steps[1], { autoAlpha:1, y:0, duration:.7 }, '>-.3') // төлбөр
+  .to({}, { duration:1 })
   .to(steps[1], { autoAlpha:0, y:-50, duration:.6 })
-  .to('.tint-purple', { autoAlpha:1, duration:.8 }, '<')
-  .addLabel('dark', '<.4')
-  .to(steps[2], { autoAlpha:1, y:0, duration:.7 }, '>-.3')
-  .to({}, { duration:.9 });
+  .to(steps[2], { autoAlpha:1, y:0, duration:.7 }, '>-.3') // байршил
+  .to({}, { duration:1 })
+  .to(steps[2], { autoAlpha:0, y:-50, duration:.6 })
+  .to(steps[3], { autoAlpha:1, y:0, duration:.7 }, '>-.3'); // яагаад
+/* "Яагаад": scroll-оор цэг бүр идэвхжиж, зураг нь солигдоно (desktop) */
+if (matchMedia('(min-width:901px)').matches) {
+  const wl = $$('.why2-list li'), wi = $$('#why2Art img'), wr = $$('.why2-rail span'), wp = { v:0 }; let wa = 0;
+  tl.to(wp, { v:wl.length - .001, duration:4, ease:'none', onUpdate:() => { const i = Math.floor(wp.v); if (i === wa) return; wa = i; wl.forEach((l, k) => l.classList.toggle('on', k === i)); wr.forEach((r, k) => r.classList.toggle('on', k <= i)); wi.forEach((m, k) => m.classList.toggle('on', k === i)); } });
+}
+tl.to({}, { duration:.9 });
 
 ScrollTrigger.sort(); // доорх scrub-ууд pin-ээс өмнө үүссэн тул байрлалыг pin-ий дараа тооцуулна
 addEventListener('load', () => ScrollTrigger.refresh());
