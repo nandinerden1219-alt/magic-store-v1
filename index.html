@@ -12,7 +12,8 @@
 <meta property="og:title" content="Magic Store | Танаас 5 алхамд">
 <meta property="og:description" content="Худалдагчгүй, 24/7 ажилладаг ухаалаг автомат дэлгүүр. Оффис, сургууль, эмнэлэг, хотхонд.">
 <!-- TODO: нийтлэхээс өмнө og:image (1200x630) болон canonical хаягаа нэмэх -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23280D38'/%3E%3Cstop offset='.6' stop-color='%237307E1'/%3E%3Cstop offset='1' stop-color='%23F5EBFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -218,8 +219,8 @@ html:not(.js) .step{display:none}
 /* эрхэм зорилго: 3 карт биш, нэг цагаан туузанд */
 .goals{display:flex;align-items:center;gap:14px clamp(16px,2.5vw,32px);margin-top:clamp(28px,4vw,48px);padding:20px clamp(18px,2vw,28px);border-radius:24px;background:#fff;box-shadow:0 16px 34px -28px rgba(40,13,56,.5)}
 .goals h3{flex:none;align-self:stretch;display:flex;align-items:center;padding-right:clamp(14px,1.5vw,22px);border-right:1px solid var(--line);font-size:16px;font-weight:800;color:var(--purple)}
-.goals ul{list-style:none;flex:1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 20px;min-width:0}
-.goals li{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15.5px;line-height:1.3;white-space:nowrap}
+.goals ul{list-style:none;flex:1;display:flex;gap:14px 20px;min-width:0} /* 3 зорилго нэг мөрөнд, багтахгүй бол бичиг нь доошоо мөрлөнө */
+.goals li{flex:1 1 0;min-width:0;display:flex;align-items:center;gap:12px;font-weight:600;font-size:15.5px;line-height:1.3}
 .goals i{width:44px;height:44px;border-radius:13px;background:var(--lav);color:var(--purple);display:grid;place-items:center;font-size:22px;flex:none}
 
 /* =========================================================
@@ -285,11 +286,11 @@ textarea.big{height:auto;min-height:92px;padding:16px 22px;resize:vertical;line-
 .err{display:none;font-size:13.5px;font-weight:700;color:#C2185B}
 .field.invalid .err{display:block}
 .field.invalid .big{box-shadow:inset 0 0 0 1.5px #E0457B}
-.form-note{font-size:13px;color:var(--ink-2);margin-top:12px}
 .send{width:100%;height:60px;border-radius:16px;background:var(--purple);color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .3s,transform .2s}
 .send:hover{background:var(--deep)}
 .send:active{transform:scale(.98)}
 .send[disabled]{opacity:.7;pointer-events:none}
+.form-note{font-size:13px;color:var(--ink-2);margin-top:12px}
 .form-error{display:none;margin-top:12px;padding:12px 16px;border-radius:12px;background:rgba(194,24,91,.08);color:#C2185B;font-weight:700;font-size:14px}
 .form-error.show{display:block}
 .ok-box{display:none;text-align:center;padding:36px 10px}
@@ -374,11 +375,9 @@ textarea.big{height:auto;min-height:92px;padding:16px 22px;resize:vertical;line-
   .ft-top{grid-template-columns:1fr 1fr}
   .ft-brand{grid-column:1/-1}
 }
-@media (max-width:1280px){
-  .goals li{white-space:normal}
-}
 @media (max-width:640px){
-  .goals ul{flex-direction:column;align-items:flex-start}
+  .goals ul{flex-direction:column;align-items:stretch}
+  .goals li{flex:none}
   .row2{grid-template-columns:1fr;gap:0} /* .field-ийн margin-bottom зай гаргана */
   .chips{grid-template-columns:1fr}
   .chip label{display:flex;align-items:center;gap:12px;padding:14px 16px}
@@ -536,13 +535,6 @@ textarea.big{height:auto;min-height:92px;padding:16px 22px;resize:vertical;line-
     <div class="order-copy" data-reveal>
       <span class="eyebrow">Холбоо барих</span>
       <h2 class="h2">Захиалга <span>өгөх</span></h2>
-      <p class="lead">Маягтыг бөглөөд илгээнэ үү. Манай баг тантай удахгүй холбогдоно.</p>
-      <ul class="facts">
-        <li><i class="ph ph-ruler"></i>Ердөө 2 м² орчим талбай</li>
-        <li><i class="ph ph-clock"></i>24 цаг, 7 хоног ажиллана</li>
-        <li><i class="ph ph-handshake"></i>Байршуулах, түрээслэх, франчайз</li>
-        <li><i class="ph ph-phone"></i><a href="tel:75056262">7505-6262</a></li>
-      </ul>
     </div>
     <div class="form-card" data-reveal>
       <form id="orderForm" novalidate>
@@ -565,23 +557,38 @@ textarea.big{height:auto;min-height:92px;padding:16px 22px;resize:vertical;line-
         </div>
         <div class="row2">
           <div class="field" data-f="loc">
-            <label class="lbl" for="loc">Байршил</label>
+            <label class="lbl" for="city">Хот / аймаг</label>
             <div class="sel-wrap">
-              <select class="big" id="loc" name="location" required>
+              <select class="big" id="city" name="city" required>
                 <option value="">Сонгоно уу</option>
-                <!-- TODO: бодит байршлын жагсаалтаар солих -->
-                <option>Баянзүрх дүүрэг</option><option>Баянгол дүүрэг</option><option>Сүхбаатар дүүрэг</option><option>Сонгинохайрхан дүүрэг</option><option>Хан-Уул дүүрэг</option><option>Чингэлтэй дүүрэг</option><option>Налайх дүүрэг</option><option>Орон нутаг</option><option>Бусад</option>
+                <option>Улаанбаатар</option><option>Архангай</option><option>Баян-Өлгий</option><option>Баянхонгор</option><option>Булган</option><option>Говь-Алтай</option><option>Говьсүмбэр</option><option>Дархан-Уул</option><option>Дорноговь</option><option>Дорнод</option><option>Дундговь</option><option>Завхан</option><option>Орхон</option><option>Өвөрхангай</option><option>Өмнөговь</option><option>Сүхбаатар</option><option>Сэлэнгэ</option><option>Төв</option><option>Увс</option><option>Ховд</option><option>Хөвсгөл</option><option>Хэнтий</option>
               </select>
               <span class="chev" aria-hidden="true"><i class="ph-bold ph-caret-down"></i></span>
             </div>
-            <span class="err">Байршлаа сонгоно уу.</span>
+            <span class="err">Хот эсвэл аймгаа сонгоно уу.</span>
           </div>
-          <div class="field">
-            <span class="lbl" id="typeLbl">Хэлбэр</span>
-            <div class="seg" role="radiogroup" aria-labelledby="typeLbl">
-              <input type="radio" name="type" id="t1" value="person" checked><label for="t1">Хувь хүн</label>
-              <input type="radio" name="type" id="t2" value="org"><label for="t2">Байгууллага</label>
+          <div class="field" data-f="dist">
+            <label class="lbl" for="dist" id="distLbl">Дүүрэг</label>
+            <div class="sel-wrap" id="distSel">
+              <select class="big" id="dist" name="district" disabled>
+                <option value="">Эхлээд хот/аймаг сонгоно уу</option>
+                <option>Баянгол</option><option>Баянзүрх</option><option>Сүхбаатар</option><option>Хан-Уул</option><option>Чингэлтэй</option><option>Сонгинохайрхан</option><option>Налайх</option><option>Багануур</option><option>Багахангай</option>
+              </select>
+              <span class="chev" aria-hidden="true"><i class="ph-bold ph-caret-down"></i></span>
             </div>
+            <input class="big" id="sum" name="district" autocomplete="off" placeholder="Сум, багийн нэр" hidden disabled>
+            <span class="err">Дүүргээ сонгоно уу.</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="lbl" for="addr">Дэлгэрэнгүй хаяг <span class="opt">заавал биш</span></label>
+          <input class="big" id="addr" name="address" autocomplete="street-address" placeholder="Байр, байгууллага, давхар, тоот">
+        </div>
+        <div class="field">
+          <span class="lbl" id="typeLbl">Хэлбэр</span>
+          <div class="seg" role="radiogroup" aria-labelledby="typeLbl">
+            <input type="radio" name="type" id="t1" value="person" checked><label for="t1">Хувь хүн</label>
+            <input type="radio" name="type" id="t2" value="org"><label for="t2">Байгууллага</label>
           </div>
         </div>
         <div class="field">
@@ -661,10 +668,18 @@ $$('.qa button').forEach(b => b.addEventListener('click', () => {
 /* ---------- форм ---------- */
 const form = $('#orderForm');
 const mark = (n, ok) => { form.querySelector(`[data-f="${n}"]`).classList.toggle('invalid', !ok); return ok; };
+const ubOn = () => form.city.value === 'Улаанбаатар';
+form.city.addEventListener('change', () => { // УБ бол дүүрэг сонгоно, аймаг бол сум бичнэ
+  const ub = ubOn(), d = $('#dist');
+  $('#distSel').hidden = !ub; $('#sum').hidden = ub; $('#sum').disabled = ub; d.disabled = !ub; d.value = '';
+  $('#distLbl').textContent = ub ? 'Дүүрэг' : 'Сум';
+  d.options[0].textContent = ub ? 'Сонгоно уу' : 'Эхлээд хот/аймаг сонгоно уу';
+  if (!ub) $('#sum').focus({ preventScroll:true });
+});
 form.addEventListener('submit', async e => {
   e.preventDefault();
   $('#formError').classList.remove('show');
-  const ok = [mark('dir', !!form.direction.value), mark('name', form.fullName.value.trim().length > 1), mark('phone', /^\d{8}$/.test(form.phone.value)), mark('loc', !!form.location.value), mark('captcha',!!form['cf-turnstile-response']?.value)].every(Boolean);
+  const ok = [mark('dir', !!form.direction.value), mark('name', form.fullName.value.trim().length > 1), mark('phone', /^\d{8}$/.test(form.phone.value)), mark('loc', !!form.city.value), mark('dist', !ubOn() || !!$('#dist').value), mark('captcha',!!form['cf-turnstile-response']?.value)].every(Boolean);
   if (!ok) { form.querySelector('.invalid input,.invalid select')?.focus(); return; }
   const btn = form.querySelector('.send'); btn.disabled = true; btn.firstChild.textContent = 'Илгээж байна ';
   const data = Object.fromEntries(new FormData(form)); data.page = location.href; data.sentAt = new Date().toISOString();
