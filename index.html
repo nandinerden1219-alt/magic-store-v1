@@ -372,6 +372,23 @@ textarea.big{height:auto;min-height:92px;padding:16px 22px;resize:vertical;line-
 /* Хамтрах санал: PDF-ийн адил харьцуулах хүснэгт */
 
 
+/* Хамтран ажиллах: bento */
+.pt-h{text-align:center}
+.pt-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(24px,3.4vw,40px)}
+.pt-hero{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:24px;padding:clamp(24px,3vw,40px);border-radius:28px;background:var(--lav)}
+.pt-hero h3{font-family:var(--wide);font-weight:700;font-size:clamp(24px,2.6vw,40px);line-height:1.1;letter-spacing:-.03em}
+.pt-hero p{margin-top:12px;max-width:34ch;font-size:17px;line-height:1.6;color:var(--ink-2)}
+.pt-hero img{width:100%;height:auto;max-height:380px;object-fit:contain;mix-blend-mode:multiply}
+.pt-card{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:150px;padding:20px;border-radius:24px;background:var(--lav);color:var(--ink);text-decoration:none;transition:background .3s}
+.pt-card:hover{background:#EDE0FB}
+.pt-ic{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#fff;font-size:24px;color:var(--brand)}
+.pt-ft{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.pt-ft b{font-size:clamp(18px,1.6vw,22px);line-height:1.3}
+.pt-ft i{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;font-size:16px;transition:transform .3s var(--ease)}
+.pt-card:hover .pt-ft i{transform:rotate(45deg)}
+.pt-card:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
+@media (max-width:900px){.pt-bento{grid-template-columns:1fr}.pt-hero{grid-template-columns:1fr}.pt-card{min-height:0;flex-direction:row;align-items:center;gap:14px;padding:16px;border-radius:22px}.pt-ft{flex:1}.pt-ft b{font-size:17px}} /* утсан дээр картууд нэг мөр: богино */
+
 .js [data-reveal]{opacity:0}
 
 /* =========================================================
@@ -540,6 +557,19 @@ textarea.big{height:auto;min-height:92px;padding:16px 22px;resize:vertical;line-
       <div class="mc-track" id="mcTrack" data-lenis-prevent role="group" aria-label="Машинууд"></div>
       <div class="mc-cap" id="mcCap" aria-live="polite"></div>
       <div class="mc-pop" id="mcPop" role="dialog" aria-label="Машины үзүүлэлт" hidden></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ХАМТРАН АЖИЛЛАХ ================= -->
+<section class="sec" id="partner" data-nav="light">
+  <div class="wrap">
+    <h2 class="h2 pt-h">Хамтран ажиллах</h2>
+    <div class="pt-bento">
+      <div class="pt-hero"><div><h3>Хаана ч байрших боломжтой</h3><p>Зай талбайн зөв ашиглалт: ердөө 2 м² талбай хангалттай.</p></div><img src="img/plan.webp" alt="2 м² талбайд байрласан машины давхрын зураг" loading="lazy"></div>
+      <a href="#contact" class="pt-card" data-scroll><span class="pt-ic"><i class="ph ph-map-pin"></i></span><span class="pt-ft"><b>Автомат машин суурилуулах</b><i class="ph-bold ph-arrow-up-right"></i></span></a>
+      <a href="#contact" class="pt-card" data-scroll><span class="pt-ic"><i class="ph ph-key"></i></span><span class="pt-ft"><b>Түрээсийн үйлчилгээ</b><i class="ph-bold ph-arrow-up-right"></i></span></a>
+      <a href="#contact" class="pt-card" data-scroll><span class="pt-ic"><i class="ph ph-monitor-play"></i></span><span class="pt-ft"><b>Сурталчилгаа байршуулах</b><i class="ph-bold ph-arrow-up-right"></i></span></a>
     </div>
   </div>
 </section>
